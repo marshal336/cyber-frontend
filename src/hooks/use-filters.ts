@@ -20,38 +20,36 @@ interface IUseFilters {
 
 export function useFilters({ sP, category }: IUseFilters) {
     const router = useRouter()
-    const searchParams = useSearchParams() as unknown as Map<keyof SearchParams, string>
+    const sp = useSearchParams() as unknown as Map<keyof SearchParams, string>
     const [select, setSelect] = React.useState('asc')
     const [brandId, { toggle: setBrandId }] = useSet(new Set<number>(
-        searchParams.get('brandId')?.split(',').map(Number) ?? []
+        sp.get('brandId')?.split(',').map(Number) ?? []
     ))
     const [memoryId, { toggle: setMemoryId }] = useSet(new Set<number>(
-        searchParams.get('memoryId')?.split(',').map(Number) ?? []
+        sp.get('memoryId')?.split(',').map(Number) ?? []
     ))
     const [screenTypeId, { toggle: setScreenTypeId }] = useSet(new Set<number>(
-        searchParams.get('screenTypeId')?.split(',').map(Number) ?? []
+        sp.get('screenTypeId')?.split(',').map(Number) ?? []
     ))
     const getByCategory = useProductsStore(state => state.getByCategory)
     const getBySearchParams = useProductsStore(state => state.getBySearchParams)
 
-    const { page, end, start, per_page, setPage } = usePaginationStore(state => state)
+    const { page, setPage } = usePaginationStore(state => state)
     const items = useProductsStore(state => state.items)
         .filter(item => item.category.title.toLowerCase().includes(category))
-        .slice(start, end)
 
     React.useEffect(() => {
         getByCategory(category)
+        setPage(Number(sp.get('page')) > 0 ? Number(sp.get('page')) : 1)
     }, [])
 
     React.useEffect(() => {
-
-        setPage(sP.page ? +sP.page : 1)
 
         const data = {
             brandId: Array.from(brandId),
             memory: Array.from(memoryId),
             screenType: Array.from(screenTypeId),
-            page,
+            page
         };
 
         const searchParams = qs.stringify(data, { arrayFormat: 'comma', })
@@ -74,8 +72,6 @@ export function useFilters({ sP, category }: IUseFilters) {
     ])
 
     return {
-        page,
-        per_page,
         items,
         brandId,
         memoryId,

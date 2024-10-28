@@ -9,21 +9,16 @@ import {
     PaginationPrevious,
 } from "@/components/ui"
 import { usePaginationStore } from "@/services/store/pagtinations"
-import { useRouter } from "next/navigation"
 
 interface ICustomPagination {
     items: number[]
-    per_page: number
 }
 
 export function CustomPagination({
     items,
-    per_page
 }: ICustomPagination) {
-    const router = useRouter()
-    const maxPages = Math.ceil((items.length * 2) / per_page)
-    const { setPage, page, end, start } = usePaginationStore(state => state)
-    console.log(end, start);
+    const maxPages = Math.ceil((items.length * 2) / 8)
+    const { setStart } = usePaginationStore(state => state)
 
     return (
         <Pagination>
@@ -33,7 +28,7 @@ export function CustomPagination({
                     .map((_, i) => (
                         <PaginationItem key={i + 1} className="cursor-pointer">
                             <PaginationLink
-                                onClick={() => setPage(i + 1)}
+                                onClick={() => setStart(i + 1)}
                             >
                                 {i + 1}
                             </PaginationLink>
@@ -43,7 +38,8 @@ export function CustomPagination({
                     <PaginationEllipsis />
                 </PaginationItem>
                 <PaginationItem className="cursor-pointer">
-                    <PaginationLink>
+                    <PaginationLink
+                        onClick={() => setStart(maxPages)}>
                         {maxPages}
                     </PaginationLink>
                 </PaginationItem>

@@ -11,7 +11,6 @@ interface IFilterItemsProps {
     itemsLength: number
     items: IProduct[]
     paginationItems: number[]
-    per_page: number
     setSelect?: (select: string) => void
 }
 
@@ -28,7 +27,7 @@ export default function FilterItems({ ...data }: IFilterItemsProps) {
                     items={['Name', 'New', "Best Seller"]} />
             </div>
             <div className="flex flex-col gap-4">
-                <div className="flex lg:justify-start gap-1 justify-center flex-wrap">
+                <div className="flex lg:justify-start gap-4 justify-center flex-wrap">
                     {data.items.map(item => (
                         <Cart
                             key={item.id}
@@ -40,10 +39,11 @@ export default function FilterItems({ ...data }: IFilterItemsProps) {
                         />
                     ))}
                 </div>
-                <CustomPagination
-                    items={data.paginationItems}
-                    per_page={data.per_page}
-                />
+                {data.items.length > 0 && (
+                    <CustomPagination
+                        items={data.paginationItems}
+                    />
+                )}
             </div>
         </div>
     )

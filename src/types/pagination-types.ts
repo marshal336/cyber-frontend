@@ -1,9 +1,8 @@
 
 
 export interface IUsePaginationState {
-    page: number
     start: number
-    end: number
-    per_page: number
-    setPage: (page: number) => void
+    page: number
+    setStart: (page: number) => void
+    setPage: (activePage?: number) => void
 }

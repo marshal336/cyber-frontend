@@ -32,7 +32,7 @@ export default function Filters(data: Partial<IFiltersProps>) {
     }, [])
 
     return (
-        <Accordion type='multiple' className={cn(styles.root,)}>
+        <Accordion type='multiple' className={cn(styles.root)}>
             <FiltersAccordion
                 activeId={data.brandId}
                 setActiveId={data.setBrandId}

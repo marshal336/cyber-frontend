@@ -56,7 +56,7 @@ export const useProductsStore = create<IUseProductState>((set, get) => ({
             set({ loading: false })
         }
     },
-    getBySearchParams: async (searchParams: Partial<SearchParams>) => {
+    getBySearchParams: async (searchParams: Partial<SearchParams>,) => {
         try {
             set({ error: false, loading: true })
             const data = await Products.getBySearchParams(searchParams)

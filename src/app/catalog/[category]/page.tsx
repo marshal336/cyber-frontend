@@ -8,7 +8,6 @@ import { SearchParams, useFilters } from '@/hooks'
 export default function Category({ params, searchParams }: { params: { category: string }, searchParams: SearchParams }) {
 
     const {
-        per_page,
         items,
         brandId,
         memoryId,
@@ -33,7 +32,6 @@ export default function Category({ params, searchParams }: { params: { category:
                 setScreenTypeId={setScreenTypeId}
             />
             <FilterItems
-                per_page={per_page}
                 paginationItems={Array.from({ length: items.length }).map((_, i) => i + 1)}
                 setSelect={s => setSelect(s)}
                 items={items}
