@@ -1,0 +1,31 @@
+.root {
+    @apply w-full text-white;
+
+    .container {
+        @apply flex sm:justify-between items-center px-4 max-sm:flex-wrap justify-center sm:py-0 py-5 text-center sm:text-left;
+
+        .info {
+            @apply flex flex-col gap-6;
+
+            .h2 {
+                @apply text-lg lg:text-2xl opacity-40;
+            }
+
+            .h1 {
+                @apply text-6xl md:text-[70px] lg:text-[96px] font-thin leading-none;
+
+                span {
+                    @apply font-normal;
+                }
+            }
+
+            .p {
+                @apply text-lg opacity-40;
+            }
+        }
+
+        button {
+            @apply max-w-[184px] border border-white/50 mx-auto sm:m-0;
+        }
+    }
+}

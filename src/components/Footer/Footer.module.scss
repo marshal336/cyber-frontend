@@ -1,0 +1,46 @@
+.root {
+    @apply bg-black text-white xls:text-left text-center mt-auto pb-8;
+
+    .container {
+        @apply max-w-[1120px] mx-auto flex xls:justify-between xls:items-start items-center md:flex-row flex-col gap-4 pt-[110px] pb-6 px-4;
+
+        .info {
+            @apply flex flex-col gap-6 items-center xls:items-start;
+
+            h2 {
+                @apply text-white/45;
+            }
+        }
+
+        .menu {
+            @apply flex justify-between gap-8 md:flex-row flex-col;
+
+            .info {
+                @apply xlg:w-[295px] w-[200px];
+
+                h2 {
+                    @apply text-base text-white;
+                }
+
+                ul {
+                    @apply flex flex-col gap-4;
+
+                    a {
+                        @apply text-sm text-white/45;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .logos {
+        @apply max-w-[1120px] mx-auto px-4 pt-3 flex gap-12 xls:justify-start justify-center;
+
+
+        svg {
+            @apply text-2xl;
+        }
+
+    }
+}

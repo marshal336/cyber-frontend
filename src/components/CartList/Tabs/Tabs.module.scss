@@ -1,0 +1,36 @@
+.tab {
+    .tabsList {
+        @apply flex xls:gap-7 gap-4 max-xls:flex-wrap justify-center xls:justify-start mb-8 xls:h-auto bg-transparent;
+
+        .tabsTrigger {
+            @apply text-lg outline-none shadow-none rounded-none;
+        }
+
+        .valid {
+            @apply relative;
+
+            &::before {
+                content: '';
+                @apply w-0 h-1 bg-black absolute -bottom-[2px] left-0 transition-all duration-300;
+            }
+
+            &:hover {
+                &::before {
+                    @apply w-full transition-all duration-300;
+                }
+            }
+        }
+
+        .inValid {
+            @apply border-black border-b-[4px] transition-all duration-300;
+
+            &:before {
+                @apply hidden
+            }
+        }
+    }
+
+    .tabsContent {
+        @apply flex flex-wrap 2xl:justify-start justify-center items-center gap-4
+    }
+}

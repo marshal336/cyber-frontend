@@ -1,0 +1,1 @@
+export { default as TabsContentItem } from './TabsContentItem'

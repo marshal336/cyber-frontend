@@ -1,0 +1,51 @@
+.root {
+    @apply w-full text-white relative overflow-hidden;
+
+    img {
+        @apply max-w-full;
+    }
+
+    .logo-1 {
+        @apply absolute sm:bottom-0 -bottom-10 xlg:-left-2 sm:w-[277px] w-[200px] xlg:w-auto sm:-left-32 -left-28;
+    }
+
+    .logo-2 {
+        @apply absolute xlg:left-10 sm:-left-20 sm:top-1 -left-32 -top-11 w-[200px];
+    }
+
+    .logo-3 {
+        @apply absolute xlg:left-[233px] left-[99px] hidden sm:block;
+    }
+
+    .logo-4 {
+        @apply absolute xlg:-right-28 sm:-right-40 -right-28 -top-36 sm:top-0 -rotate-12;
+    }
+
+    .logo-5 {
+        @apply absolute xlg:bottom-0 sm:-bottom-20 -bottom-8 xlg:-right-2 sm:-right-14 -right-56;
+    }
+
+    .container {
+        @apply mx-auto px-4 py-4 pt-40 pb-[89px] max-w-[3700px];
+
+        .info {
+            @apply flex flex-col gap-2 items-center xlg:ml-36 sm:ml-10 m-0;
+
+            h1 {
+                @apply md:text-7xl text-5xl font-thin text-center sm:text-left;
+
+                span {
+                    @apply font-normal;
+                }
+            }
+
+            p {
+                @apply text-white/15 w-[300px] text-center md:text-left md:w-auto;
+            }
+
+            button {
+                @apply max-w-[183px];
+            }
+        }
+    }
+}

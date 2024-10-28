@@ -1,0 +1,15 @@
+.root {
+    @apply w-full mt-20;
+
+    .container {
+        @apply px-4 py-4;
+
+        h2 {
+            @apply text-2xl font-medium pb-7;
+        }
+
+        .cards {
+            @apply flex flex-wrap sm:justify-between justify-center items-center gap-4;
+        }
+    }
+}

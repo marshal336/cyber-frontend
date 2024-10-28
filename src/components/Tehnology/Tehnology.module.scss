@@ -1,0 +1,157 @@
+.root {
+    @apply w-full;
+
+    .container {
+        @apply grid grid-cols-12 max-w-[3700px] mx-auto overflow-hidden;
+
+        .colOne {
+            @apply lg:col-span-6 col-span-12 flex max-xls:flex-col justify-center items-center xls:justify-between p-10 xls:p-0;
+
+            img {
+                @apply max-w-full ml-12 xls:m-0;
+            }
+
+            .info {
+                @apply flex flex-col gap-4 justify-center xls:items-start items-center text-center xls:text-left;
+
+                h1 {
+                    @apply text-2xl w-[230px] xxl:text-4xl;
+                }
+
+                p {
+                    @apply text-sm opacity-60;
+
+                    br:first-child {
+                        @apply xxl:block hidden;
+                    }
+                }
+            }
+        }
+
+        .colTwo {
+            img {
+                @apply max-w-full;
+            }
+
+            @apply col-start-1 lg:col-end-4 xls:col-span-6 col-span-12 row-start-2 row-end-3 flex items-center xls:gap-11 gap-4 p-10 xls:p-0 bg-[#ededed] max-xls:flex-col;
+
+            .info {
+                @apply flex flex-col gap-4 justify-center xls:items-start items-center xls:text-left text-center;
+
+                h1 {
+                    @apply text-xl xxl:text-[29px] font-thin;
+
+                    br {
+                        @apply xls:block hidden;
+                    }
+
+                    span {
+                        @apply font-medium;
+                    }
+                }
+
+                p {
+                    @apply text-sm opacity-60;
+
+                    br:nth-child(1) {
+                        @apply sm:hidden xls:block hidden;
+                    }
+
+                    br:nth-child(2) {
+                        @apply xls:block hidden;
+                    }
+
+                    br:nth-child(3) {
+                        @apply sm:hidden xls:block hidden;
+                    }
+                }
+            }
+        }
+
+        .colThree {
+            @apply bg-[#353535] p-10 xls:p-0 xls:row-start-2 row-start-3 xls:row-end-3 row-end-4 lg:col-start-4 xls:col-start-7 col-start-1 col-end-13 lg:col-end-7 flex items-center gap-4 text-white h-full max-xls:flex-col;
+
+            img {
+                @apply max-w-full;
+            }
+
+            .info {
+                @apply flex flex-col gap-4 justify-center xls:items-start items-center xls:text-left text-center;
+
+                h1 {
+                    @apply text-lg xxl:text-[29px] font-thin;
+
+                    br {
+                        @apply hidden xls:block;
+                    }
+
+                    span {
+                        @apply font-medium;
+                    }
+                }
+
+                p {
+                    @apply text-sm opacity-60;
+
+                    br:nth-child(1) {
+                        @apply xxl:hidden xls:block hidden
+                    }
+
+                    br:nth-child(2) {
+                        @apply xxl:hidden xls:block hidden
+                    }
+                }
+            }
+        }
+
+        .colFour {
+            @apply h-full lg:col-start-7 col-start-1 lg:col-end-13 col-end-12 lg:row-span-3 row-span-4 flex items-center relative xls:p-14 p-2 ml-6 xls:m-0 bg-[#ededed] max-xls:flex-col-reverse;
+
+            .info {
+                @apply flex flex-col gap-4 justify-center xls:items-start items-center xls:text-left text-center;
+
+                h1 {
+                    @apply text-4xl xls:text-5xl xxl:text-[64px] font-thin leading-[50px];
+
+                    br {
+                        @apply hidden xls:block
+                    }
+
+                    span {
+                        @apply font-normal
+                    }
+                }
+
+                p {
+                    @apply text-sm opacity-60;
+
+                    br {
+                        &:nth-child(1) {
+                            @apply xxl:hidden xls:block hidden;
+                        }
+
+                        &:nth-child(2) {
+                            @apply hidden xls:block;
+                        }
+
+                        &:nth-child(3) {
+                            @apply xxl:hidden xls:block hidden;
+                        }
+                    }
+                }
+
+                button {
+                    @apply border border-black/50 w-full xls:w-auto
+                }
+            }
+
+            .img {
+                @apply xls:absolute min-w-[215px] min-h-[140px] xxl:top-[153px] xxl:right-[-402px] xls:top-[113px] xls:right-[-472px];
+
+                img {
+                    @apply max-w-full
+                }
+            }
+        }
+    }
+}

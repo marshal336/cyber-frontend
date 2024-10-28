@@ -1,0 +1,20 @@
+<svg width="74.000000" height="31.000000" viewBox="0 0 74 31" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<filter id="filter_2603_2803_dd" x="0.000000" y="-0.436005" width="73.399658" height="30.872002" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+			<feOffset dx="0" dy="4"/>
+			<feGaussianBlur stdDeviation="1.33333"/>
+			<feComposite in2="hardAlpha" operator="out" k2="-1" k3="1"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+			<feBlend mode="normal" in2="BackgroundImageFix" result="effect_dropShadow_1"/>
+			<feBlend mode="normal" in="SourceGraphic" in2="effect_dropShadow_1" result="shape"/>
+		</filter>
+	</defs>
+	<g filter="url(#filter_2603_2803_dd)">
+		<path id="Logo Vector" d="M34.67 -0.44L34.67 17.15L37.81 17.15L37.81 16.96L37.79 16.31C38.39 17.03 39.85 17.46 40.76 17.46C44.48 17.46 46.64 15.14 46.64 11.54C46.64 8.34 44.53 5.58 40.76 5.58C39.71 5.58 38.17 5.97 37.67 6.64L37.72 5.82L37.72 -0.44L34.67 -0.44ZM18.18 15.64C17.12 16.91 12.01 17.06 10.09 17.06C6.3 17.06 4 14.61 4 11.06C4 7.53 6.32 5.08 10.09 5.08C11.91 5.08 17.17 6.28 18.23 7.55L12.83 9.04C12.06 8.2 11.22 7.87 10.09 7.87C8.48 7.87 7.09 9.16 7.09 11.06C7.09 13.12 8.39 14.28 10.09 14.28C11.1 14.28 12.25 13.89 12.87 13.1L18.18 15.64ZM66.92 8.42C67.57 8.42 68.12 8.49 68.75 8.7L69.39 5.89C68.67 5.63 67.47 5.56 66.8 5.56C65.24 5.56 63.63 5.89 62.7 6.38L62.7 17.15L65.79 17.15L65.79 8.58C66.13 8.44 66.49 8.42 66.92 8.42ZM59.33 15.71C58.44 16.86 56.4 17.56 54.65 17.56C50.84 17.56 48.7 14.94 48.7 11.56C48.7 8.1 50.81 5.58 54.53 5.58C58.23 5.58 60.34 8.1 60.34 11.56C60.34 11.94 60.34 12.18 60.32 12.52L51.82 12.52C51.99 13.94 53.04 14.82 54.65 14.82C55.8 14.82 56.88 14.44 57.56 13.7L59.33 15.71ZM25.81 22.43L22.38 22.43L24.61 17.27L19.79 5.87L23.2 5.87L25.6 11.97L26.29 14.15L26.97 11.97L29.37 5.87L32.8 5.87L25.81 22.43ZM51.87 10.46L57.15 10.46C57 9.18 55.95 8.32 54.53 8.32C53.12 8.32 51.99 9.18 51.87 10.46ZM37.67 11.54C37.67 9.74 38.92 8.42 40.64 8.42C42.32 8.42 43.48 9.66 43.48 11.54C43.48 13.38 42.32 14.63 40.64 14.63C38.92 14.63 37.67 13.31 37.67 11.54Z" fill="#000000" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</g>
+</svg>

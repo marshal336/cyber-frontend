@@ -1,0 +1,23 @@
+.root {
+    @apply w-[270px] border border-black/25 mr-4 mt-2 xlg:hidden block;
+
+    .label {
+        @apply text-xl;
+    }
+
+    .separator {
+        @apply bg-black/25;
+    }
+
+    .links {
+        @apply flex flex-col items-start;
+
+        .logo {
+            @apply text-3xl;
+        }
+
+        .title {
+            @apply text-2xl cursor-pointer;
+        }
+    }
+}

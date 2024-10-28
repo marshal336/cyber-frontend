@@ -1,0 +1,36 @@
+.root {
+    @apply w-full bg-white border-b border-b-black/20;
+
+    .container {
+        @apply px-4 py-4 xs:py-8 flex gap-6 justify-between items-center;
+
+        .burger {
+            @apply xlg:hidden block text-3xl;
+        }
+
+        .mobileMenu {
+            @apply xlg:hidden block;
+        }
+    }
+
+    .menu {
+        @apply gap-16 xlg:flex hidden items-center;
+
+        .links {
+            @apply flex gap-14;
+
+            a {
+                @apply text-base text-stone-400 hover:text-black transition-all;
+            }
+
+        }
+
+        .icons {
+            @apply flex gap-7;
+
+            a {
+                @apply text-[28px];
+            }
+        }
+    }
+}

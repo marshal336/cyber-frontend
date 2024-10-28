@@ -1,0 +1,43 @@
+.swiper {
+  @apply mt-36 mb-7;
+
+  .container {
+    @apply px-4 py-4;
+
+
+    .button {
+      @apply flex justify-between mb-8;
+
+      h2 {
+        @apply text-2xl font-medium;
+      }
+
+      .div {
+        @apply flex gap-4;
+
+        svg {
+          @apply cursor-pointer;
+        }
+      }
+
+      .arrow {
+        @apply text-3xl;
+      }
+    }
+  }
+
+  .Swiper {
+
+    .swiper-slide {
+      @apply flex justify-center items-center !important;
+
+      .swiper-icon {
+        @apply w-[160px] h-[128px] bg-gray-200 rounded-lg flex flex-col gap-2 justify-center items-center;
+
+        svg {
+          @apply text-5xl;
+        }
+      }
+    }
+  }
+}
