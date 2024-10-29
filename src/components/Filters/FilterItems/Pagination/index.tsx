@@ -2,47 +2,46 @@
 import {
     Pagination,
     PaginationContent,
-    PaginationEllipsis,
     PaginationItem,
     PaginationLink,
-    PaginationNext,
     PaginationPrevious,
+    PaginationNext
 } from "@/components/ui"
 import { usePaginationStore } from "@/services/store/pagtinations"
-
-interface ICustomPagination {
-    items: number[]
-}
+import { useProductsStore } from "@/services/store/product/product"
+import React from "react"
 
 export function CustomPagination({
-    items,
-}: ICustomPagination) {
-    const maxPages = Math.ceil((items.length * 2) / 8)
+}) {
+    const { page } = usePaginationStore(state => state)
     const { setStart } = usePaginationStore(state => state)
+    const { items } = useProductsStore(state => state)
 
     return (
         <Pagination>
             <PaginationContent>
-                {items
-                    .slice(0, maxPages < 3 ? maxPages : 3)
+                {page !== 1 && (
+                    <PaginationItem
+                        onClick={() => setStart(page - 1)}
+                        className="cursor-pointer">
+                        <PaginationPrevious className="px-3" />
+                    </PaginationItem>
+                )}
+                {[...new Array(1)]
                     .map((_, i) => (
                         <PaginationItem key={i + 1} className="cursor-pointer">
-                            <PaginationLink
-                                onClick={() => setStart(i + 1)}
-                            >
-                                {i + 1}
+                            <PaginationLink>
+                                {page}
                             </PaginationLink>
                         </PaginationItem>
                     ))}
-                <PaginationItem>
-                    <PaginationEllipsis />
-                </PaginationItem>
-                <PaginationItem className="cursor-pointer">
-                    <PaginationLink
-                        onClick={() => setStart(maxPages)}>
-                        {maxPages}
-                    </PaginationLink>
-                </PaginationItem>
+                {items.length === 8 && (
+                    <PaginationItem
+                        onClick={() => setStart(page + 1)}
+                        className="cursor-pointer">
+                        <PaginationNext className="px-3" />
+                    </PaginationItem>
+                )}
             </PaginationContent>
         </Pagination>
     )

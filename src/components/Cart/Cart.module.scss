@@ -1,6 +1,6 @@
 .cart {
-    @apply max-w-[268px] h-[390px] flex justify-center items-center p-4 relative border-none hover:scale-[1.01] transition-all;
-    background: rgb(247, 247, 247);
+    @apply max-w-[268px] h-[390px] flex justify-center items-center p-4 relative hover:scale-[1.01] shadow-md transition-all;
+    border: 1px solid rgb(0, 0, 0, .05) !important;
 
     .heart {
         @apply absolute top-4 right-4 text-3xl cursor-pointer;

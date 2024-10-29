@@ -32,7 +32,6 @@ export default function Category({ params, searchParams }: { params: { category:
                 setScreenTypeId={setScreenTypeId}
             />
             <FilterItems
-                paginationItems={Array.from({ length: items.length }).map((_, i) => i + 1)}
                 setSelect={s => setSelect(s)}
                 items={items}
                 className="w-full flex-1"

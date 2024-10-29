@@ -44,7 +44,6 @@ export function useFilters({ sP, category }: IUseFilters) {
     }, [])
 
     React.useEffect(() => {
-
         const data = {
             brandId: Array.from(brandId),
             memory: Array.from(memoryId),

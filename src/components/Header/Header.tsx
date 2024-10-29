@@ -43,7 +43,7 @@ export default function Header({ }: IHeaderProps) {
                     focus={focus}
                     setFocus={setFocus}
                 />
-                {focus && <div className="absolute inset-0 z-10 bg-black/50" />}
+
                 <div className={styles.menu}>
                     <div className={styles.links}>
                         {headerLinks.map((el, i) => (

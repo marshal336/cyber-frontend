@@ -31,7 +31,7 @@ export default function Cart({ ...data }: ICartProps) {
                 {hover && <CiHeart className={cn(styles.heart)} />}
                 {data.bestSeller && (<p className="absolute top-1 left-1 bg-red-600 text-white text-sm px-2 py-1 rounded-xl">BestSeller</p>)}
                 <CardContent className={cn(styles.cardContent)}>
-                    <div className="w-[160px] h-[160px] flex justify-center mx-auto">
+                    <div className="w-[160px] h-[130px] flex justify-center mx-auto">
                         <img src={data.defaultImage} alt="iphone" className="max-w-fill" />
                     </div>
 
