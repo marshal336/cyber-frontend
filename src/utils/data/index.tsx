@@ -1,10 +1,14 @@
 import { PAGES_DASHBOARD } from "@/utils";
-import { CiHeadphones, CiCamera } from "react-icons/ci";
+import { CiHeadphones, CiCamera, CiDeliveryTruck } from "react-icons/ci";
 import { FaFacebookSquare, FaHome, FaInstagramSquare, FaTiktok, FaUsers } from "react-icons/fa";
-import { IoMdContact } from "react-icons/io";
+import { IoIosCloudDone, IoMdContact, IoMdReverseCamera } from "react-icons/io";
 import { TbLogs, TbDeviceWatch } from "react-icons/tb";
-import { MdPhoneIphone, MdOutlineVideogameAsset } from "react-icons/md";
+import { MdPhoneIphone, MdOutlineVideogameAsset, MdPhoneAndroid } from "react-icons/md";
 import { HiMiniComputerDesktop } from "react-icons/hi2";
+import { IoCameraOutline, IoHome } from "react-icons/io5";
+import { BsCpu } from "react-icons/bs";
+import { GiBattery75 } from "react-icons/gi";
+import { LuCpu } from "react-icons/lu";
 
 
 export const headerLinks = [
@@ -59,4 +63,19 @@ export const footerLogos = [
   { logo: <FaFacebookSquare /> },
   { logo: <FaTiktok /> },
   { logo: <FaFacebookSquare /> },
+]
+
+export const productPageDeliveryLinks = [
+  { item: <CiDeliveryTruck />, title: 'Free Delivery', subTitle: '1-2 day' },
+  { item: <IoHome />, title: 'In-stock', subTitle: 'Today' },
+  { item: <IoIosCloudDone />, title: 'Guaranteed', subTitle: '1 year' },
+]
+
+export const characteristicsLogos = [
+  { item: <MdPhoneAndroid /> },
+  { item: <BsCpu /> },
+  { item: <LuCpu /> },
+  { item: <IoCameraOutline /> },
+  { item: <IoMdReverseCamera /> },
+  { item: <GiBattery75 /> },
 ]

@@ -1,0 +1,184 @@
+.info {
+    @apply flex flex-col gap-6 md:w-[490px] sxs:w-[340px] w-[300px] xl:w-[565px] px-2;
+
+    h2 {
+        @apply sxs:text-5xl text-3xl;
+    }
+
+    .price {
+        @apply flex gap-4 items-center;
+    }
+
+
+    .descriprion {
+        @apply max-w-[560px];
+    }
+
+    .buttons {
+        @apply flex flex-col items-center lg:flex-row lg:gap-6 gap-3;
+
+        button {
+            @apply px-16 py-6 sxs:w-full w-[300px];
+        }
+    }
+
+
+}
+
+// .details {
+//     @apply pt-12 pb-6 px-10 flex flex-col gap-8;
+
+//     .h2 {
+//         @apply text-2xl font-medium;
+//     }
+
+//     .p {
+//         @apply text-black/40
+//     }
+
+//     .screen {
+//         @apply flex flex-col gap-4;
+
+//         h2 {
+//             @apply text-xl font-medium;
+//         }
+
+//         .screenOptions {
+//             @apply flex flex-col gap-6;
+
+//             .separator {
+//                 @apply flex justify-between items-start border-b border-b-black/15 pb-2;
+
+//                 p:last-child {
+//                     @apply max-w-[118px] text-right
+//                 }
+//             }
+//         }
+//     }
+
+//     .cpu {
+//         @apply flex flex-col gap-4;
+
+//         h2 {
+//             @apply text-xl font-medium;
+//         }
+
+//         .cpuOptions {
+//             @apply flex flex-col gap-6;
+
+//             .separator {
+//                 @apply flex justify-between items-start border-b border-b-black/15 pb-2;
+//             }
+//         }
+//     }
+// }
+
+// .button {
+//     @apply flex items-center gap-3 max-w-[208px] mx-auto;
+
+//     svg {
+//         @apply text-xl
+//     }
+// }
+
+// .reviews {
+//     @apply pt-12 pb-6 px-10;
+
+//     .h1 {
+//         @apply text-2xl font-medium mb-12;
+//     }
+
+//     .rating {
+//         @apply flex justify-between items-center md:flex-row flex-col;
+
+//         .stars {
+//             @apply flex flex-col gap-4 justify-center items-center p-8;
+
+//             h1 {
+//                 @apply text-6xl;
+//             }
+
+//             p {
+//                 @apply text-black/20
+//             }
+
+//             .star {
+//                 @apply flex gap-1;
+//             }
+
+//         }
+
+//         .input {
+//             @apply flex flex-col md:w-[876px] sm:w-[476px] sxs:w-[344px] w-[250px] sxs:gap-1 gap-0;
+
+//             .line {
+//                 @apply relative xlg:w-[664px] sxs:w-[300px] w-[100px] mb-1;
+
+//                 .lineOne {
+//                     @apply w-full bg-black/15 h-[6px] absolute top-0 rounded-full;
+//                 }
+
+//                 .lineTwo {
+//                     @apply absolute h-[6px] top-0 rounded-full bg-yellow-500;
+//                 }
+//             }
+
+//             .inputOne {
+//                 @apply flex justify-between items-center;
+
+//                 h3 {
+//                     @apply md:w-[113px] w-[90px] text-sm;
+//                 }
+
+//                 h4 {
+//                     @apply text-black/30;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// .comments {
+//     @apply flex flex-col p-6;
+
+//     .comment {
+//         @apply flex items-start justify-between gap-[19px];
+
+//         img {
+//             @apply rounded-full max-w-full;
+//         }
+
+//         .info {
+//             @apply flex flex-col gap-2;
+
+//             .create {
+//                 @apply flex justify-between items-center;
+
+//                 h3 {
+//                     @apply text-lg font-bold;
+//                 }
+
+//                 p {
+//                     @apply text-black/20
+//                 }
+//             }
+
+//             .stars {
+//                 @apply flex gap-1;
+//             }
+//         }
+
+//     }
+// }
+
+// .related {
+//     @apply flex flex-col gap-8;
+
+//     .h3 {
+//         @apply text-2xl font-medium;
+//     }
+
+//     .cards {
+//         @apply flex flex-wrap justify-center items-center gap-4;
+//     }
+// }

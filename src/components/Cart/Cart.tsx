@@ -22,8 +22,10 @@ interface ICartProps {
 export default function Cart({ ...data }: ICartProps) {
     const [hover, setHover] = React.useState(false)
 
+    const path = `${data.categoryTitle.toLowerCase()}/${data.title.replace(/\s+/g, '-').toLowerCase()}-id-${data.id}`
+
     return (
-        <Link href={`${PAGES_DASHBOARD.CATALOG}/${data.categoryTitle.toLowerCase()}/${data.id}`}>
+        <Link href={`${PAGES_DASHBOARD.CATALOG}/${path}`}>
             <Card
                 onMouseEnter={() => setHover(!hover)}
                 onMouseLeave={() => setHover(false)}

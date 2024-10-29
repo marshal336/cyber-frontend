@@ -1,0 +1,1 @@
+export { default as InfoProductPage } from './info-product-page'

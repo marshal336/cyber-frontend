@@ -1,0 +1,11 @@
+.colors {
+    @apply flex sxs:items-center flex-col sxs:flex-row gap-4;
+
+    .colorsArray {
+        @apply flex gap-4;
+
+        p {
+            @apply rounded-full;
+        }
+    }
+}

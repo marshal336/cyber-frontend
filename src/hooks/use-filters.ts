@@ -1,5 +1,5 @@
 import { usePaginationStore } from "@/services/store/pagtinations"
-import { useProductsStore } from "@/services/store/product/product"
+import { useProductsStore } from "@/services/store/product/products"
 import { useRouter, useSearchParams } from "next/navigation"
 import qs from "qs"
 import React from "react"

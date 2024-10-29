@@ -9,7 +9,7 @@ import { headerLinks } from "../../utils/data";
 import { CartDrawer, Container, CustomInput } from "..";
 import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci";
 import { cn } from "@/lib/utils";
-import { useProductsStore } from "@/services/store/product/product";
+import { useProductsStore } from "@/services/store/product/products";
 import { time } from "console";
 import HeaderInput from "./HeaderInput";
 import { useInputSearchStore } from "@/services/store/product/input-search";
@@ -20,8 +20,8 @@ interface IHeaderProps { }
 export default function Header({ }: IHeaderProps) {
     const [input, setInput] = React.useState("");
     const [focus, setFocus] = React.useState(false);
-    const findAllProductsByNames = useInputSearchStore(state => state.findAllProductsByNames)
-    const items = useInputSearchStore(state => state.items)
+    const { findAllProductsByNames } = useInputSearchStore(state => state)
+    const { items } = useInputSearchStore(state => state)
 
 
     React.useEffect(() => {

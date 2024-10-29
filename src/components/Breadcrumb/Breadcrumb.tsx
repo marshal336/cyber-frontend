@@ -1,7 +1,7 @@
 'use client'
 import React, { Children } from 'react'
 import { cn } from '@/lib/utils'
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../ui'
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '../ui'
 import Link from 'next/link'
 import Container from '../Container/Container'
 import { usePathname } from 'next/navigation'
@@ -11,7 +11,6 @@ interface IBreadcrumbLinksProps {
 }
 
 export default function BreadcrumbLinks({ className }: IBreadcrumbLinksProps) {
-
     const paths = usePathname();
     const pathNames = paths.split('/').filter((path) => path);
     const pathItems = pathNames
@@ -21,7 +20,7 @@ export default function BreadcrumbLinks({ className }: IBreadcrumbLinksProps) {
         }));
 
     return (
-        <Container className={cn(className, 'justify-start flex py-10 px-4')}>
+        <Container className={cn(className, 'justify-start lg:flex hidden py-10 px-4 ')}>
             <Breadcrumb>
                 <BreadcrumbList>
                     <BreadcrumbItem>
@@ -42,7 +41,7 @@ export default function BreadcrumbLinks({ className }: IBreadcrumbLinksProps) {
                                         <Link
                                             className={pathItems[pathItems.length - 1].name === item.name ? 'text-black' : 'text-gray-400'}
                                             href={`/${item.path}`}>
-                                            {item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase()}
+                                            {item.name.toLowerCase()}
                                         </Link>
                                     </BreadcrumbLink>
                                 )}

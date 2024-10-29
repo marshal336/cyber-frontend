@@ -1,0 +1,23 @@
+.delivery {
+    @apply flex justify-between md:flex-row flex-col gap-3 md:gap-0;
+
+    .deliveryItem {
+        @apply flex items-center gap-4;
+
+        svg {
+            @apply text-2xl
+        }
+
+        p {
+            @apply flex flex-col;
+
+            span {
+                @apply font-extralight;
+
+                &:last-child {
+                    @apply font-semibold
+                }
+            }
+        }
+    }
+}

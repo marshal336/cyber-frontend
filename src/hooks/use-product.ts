@@ -1,4 +1,4 @@
-import { useProductsStore } from "@/services/store/product/product"
+import { useProductsStore } from "@/services/store/product/products"
 import { Variant } from "@/utils"
 import React from "react"
 

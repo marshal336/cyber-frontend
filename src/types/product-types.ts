@@ -54,18 +54,23 @@ export interface IProductItemInfo {
     id: number
     screenSize: string
     CPU: string
+    cores: number
+    mainCamera: string
+    frontCamera: string
+    battery: number
     screenTypeId: number
     brandId: number
     productId: number
     price: number
-    mainCamera: string
-    frontCamera: string
-    battery: number
     description: string
     screenResolution: string
-    cores: number
     createdAt: string
     updatedAt: string
+    brand: IProductItemInfoBrand
+    colors: IProductItemInfoColors[]
+    imagesUrl: IProductItemInfoImages[]
+    memory: IProductItemInfoMemorys[]
+    screenType: IProductItemInfoScreenType
 }
 
 export interface IUseProductState {

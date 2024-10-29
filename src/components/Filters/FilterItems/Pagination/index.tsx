@@ -8,7 +8,7 @@ import {
     PaginationNext
 } from "@/components/ui"
 import { usePaginationStore } from "@/services/store/pagtinations"
-import { useProductsStore } from "@/services/store/product/product"
+import { useProductsStore } from "@/services/store/product/products"
 import React from "react"
 
 export function CustomPagination({

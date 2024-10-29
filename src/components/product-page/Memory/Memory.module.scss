@@ -1,0 +1,7 @@
+.memorys {
+    @apply grid lg:grid-cols-4 grid-cols-2 lg:justify-items-center justify-items-start gap-4 lg:max-w-[565px] max-w-[200px];
+
+    .memory {
+        @apply lg:w-[122px] w-[100px] px-6 py-4 cursor-pointer flex justify-center items-center rounded-lg;
+    }
+}

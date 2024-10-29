@@ -23,7 +23,6 @@ export default function HeaderInput({
     items
 }: IHeaderInputProps) {
     const ref = React.useRef(null)
-
     useClickAway(ref, () => {
         setFocus?.(false)
     })
@@ -44,7 +43,11 @@ export default function HeaderInput({
                         focus && 'translate-y-0 opacity-100 visible'
                     )}>
                         {items.map(item => (
-                            <Link key={item.id} href={`${item.category.title.toLowerCase()}/${item.id}`} className="flex px-5 justify-between items-center hover:scale-[1.01] py-3 transition-all">
+                            <Link
+                                onClick={() => setFocus?.(false)}
+                                key={item.id}
+                                href={`/catalog/${item.category.title.toLowerCase()}/${item.title.replace(/\s+/g, '-').toLowerCase()}-id-${item.id}`}
+                                className="flex px-5 justify-between items-center hover:scale-[1.01] py-3 transition-all">
                                 <div className="flex gap-4 items-center">
                                     <div className="sm:w-10 sm:h-10 h-6 w-6">
                                         <img src={item.defaultImage} alt="logo" />

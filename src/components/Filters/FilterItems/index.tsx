@@ -5,7 +5,7 @@ import FiltersItemsSelect from './FiltersItemsSelect'
 import Cart from '../../Cart/Cart'
 import { IProduct } from '@/types'
 import { CustomPagination } from './Pagination'
-import { useProductsStore } from '@/services/store/product/product'
+import { useProductsStore } from '@/services/store/product/products'
 import { FaSpinner } from "react-icons/fa6";
 
 interface IFilterItemsProps {

@@ -1,0 +1,23 @@
+.wrapperLogos {
+    @apply flex xlg:flex-row flex-col-reverse items-center gap-11;
+
+    .subLogos {
+        @apply flex xlg:flex-col flex-row sxs:gap-7 gap-3 sxs:p-0;
+
+        div {
+            @apply sxs:w-[74px] w-[60] sxs:h-[100px] h-[89px] rounded-md;
+
+            img {
+                @apply max-w-full;
+            }
+        }
+    }
+
+    .mainLogo {
+        @apply sxs:w-[416px] w-[300px] sxs:h-[516px] h-[400px] flex justify-center items-center rounded-md;
+
+        img {
+            @apply max-w-full
+        }
+    }
+}
