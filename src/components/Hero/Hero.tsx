@@ -1,7 +1,6 @@
 import React from "react"
 import styles from './Hero.module.scss'
 import { Button } from "../ui/button"
-import Image from "next/image"
 import Container from "../Container/Container"
 import { cn } from "@/lib/utils"
 
@@ -21,7 +20,7 @@ export default function Hero({ }: IHeroProps) {
                     <Button variant={'ghost'} size={'lg'}>Shop Now</Button>
                 </div>
                 <div>
-                    <Image src={'/iphone.png'} alt="iphone" width={406} height={632} className="max-w-full" />
+                    <img src={'/Iphone.png'} alt="iphone" width={406} height={632} className="max-w-full" />
                 </div>
             </Container>
         </div>

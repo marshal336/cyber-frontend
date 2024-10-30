@@ -1,4 +1,5 @@
 import { CartList, Category, Hero, Sale, Tehnology } from "@/components";
+import Banner from "@/components/Banner";
 import React from "react";
 
 export default function Home() {
@@ -10,6 +11,8 @@ export default function Home() {
       <Tehnology />
       <Category />
       <CartList isValidTab />
+      <Banner />
+      {/* <CartList isValidDiscount /> */}
       <Sale />
     </>
   );

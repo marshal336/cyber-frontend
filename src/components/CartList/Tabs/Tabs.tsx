@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './Tabs.module.scss'
 import Cart from '@/components/Cart/Cart';
 import TabsTriggerItem from './TabsTriggerItem';
-import { TabsList, TabsTrigger, TabsContent, Tabs } from "@/components/ui";
+import { TabsList, Tabs } from "@/components/ui";
 import { cn } from '@/lib/utils';
 import { TabsContentItem } from './TabsContentItem';
 import { useProduct } from '@/hooks';
@@ -14,6 +14,7 @@ import { Values, Variant } from '@/utils';
 export default function Tab() {
     const [key, setKey] = React.useState<Variant['value']>('new-arrival')
     const { items } = useProduct(key)
+    console.log(items);
 
     return (
         <Tabs defaultValue={Values[0].name} className={styles.tab}>
@@ -33,12 +34,12 @@ export default function Tab() {
                     {items.slice(0, 4).map(item => (
                         <Cart
                             memory={item.memory[0].title}
-                            color={item.colors[0].title}
+                            color={item.productItemInfo[0].colors[0].title}
                             key={item.id}
                             id={item.id}
                             defaultImage={item.defaultImage}
                             price={item.productItemInfo[0].price}
-                            title={item.title}
+                            productTitle={item.title}
                             categoryTitle={item.category.title}
                             bestSeller={key === 'best-seller' ? item.bestSeller : undefined}
                         />

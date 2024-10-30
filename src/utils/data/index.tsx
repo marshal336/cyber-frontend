@@ -79,3 +79,10 @@ export const characteristicsLogos = [
   { item: <IoMdReverseCamera /> },
   { item: <GiBattery75 /> },
 ]
+
+export const bannerLinks = [
+  { logo: '/popularItems/1.png', title: "Popular Products", description: 'iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.', },
+  { logo: '/popularItems/2.png', title: "iPad Pro", description: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.", },
+  { logo: '/popularItems/3.png', title: "Samsung Galaxy", description: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.", },
+  { logo: '/popularItems/4.png', title: "Macbook Pro", description: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.", },
+]

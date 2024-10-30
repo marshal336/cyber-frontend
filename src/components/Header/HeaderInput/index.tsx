@@ -27,7 +27,6 @@ export default function HeaderInput({
     useClickAway(ref, () => {
         setFocus?.(false)
     })
-    console.log(items);
 
     return (
         <>
@@ -49,7 +48,7 @@ export default function HeaderInput({
                             <Link
                                 onClick={() => setFocus?.(false)}
                                 key={item.id}
-                                href={`${validPath(item.category.title, item.title, item.memory[0].title, item.colors[0].title)}`}
+                                href={`${validPath(item.category.title, item.title, item.memory[0].title, item.productItemInfo[0].colors[0].title)}`}
                                 className="flex px-5 justify-between items-center hover:scale-[1.01] py-3 transition-all">
                                 <div className="flex gap-4 items-center">
                                     <div className="sm:w-10 sm:h-10 h-6 w-6">

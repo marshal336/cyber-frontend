@@ -11,7 +11,7 @@ import { PAGES_DASHBOARD, validPath } from "@/utils"
 
 interface ICartProps {
     id: number;
-    title: string;
+    productTitle: string;
     defaultImage: string
     price: number
     bestSeller?: number
@@ -23,7 +23,7 @@ interface ICartProps {
 
 export default function Cart({ ...data }: ICartProps) {
     const [hover, setHover] = React.useState(false)
-    const path = validPath(data.categoryTitle, data.title, data.memory, data.color)
+    const path = validPath(data.categoryTitle, data.productTitle, data.memory, data.color)
 
     return (
         <Link href={`${path}`}>
@@ -38,7 +38,7 @@ export default function Cart({ ...data }: ICartProps) {
                         <img src={data.defaultImage} alt="iphone" className="max-w-fill" />
                     </div>
 
-                    <p>{data.title}</p>
+                    <p>{data.productTitle}</p>
 
                     <b className="text-xl">{data.price} $</b>
 

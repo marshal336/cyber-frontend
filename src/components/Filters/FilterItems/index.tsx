@@ -52,7 +52,7 @@ export default function FilterItems({ ...data }: IFilterItemsProps) {
                                     categoryTitle={item.category.title}
                                     id={item.id}
                                     price={item.productItemInfo[0].price}
-                                    title={item.title}
+                                    productTitle={item.title}
                                 />
                             ))}
                         </>

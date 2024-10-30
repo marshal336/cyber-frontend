@@ -14,7 +14,7 @@ export default function CartList({ isValidTab, isValidDiscount }: ICartListProps
     return (
         <Container className='p-4'>
             {isValidTab && <Tabs />}
-            {/* {isValidDiscount && <Discount items={items} />} */}
+            {isValidDiscount && <Discount />}
         </Container>
 
     )

@@ -3,13 +3,12 @@ import React from "react"
 import styles from './Discount.module.scss'
 import Cart from "@/components/Cart/Cart"
 import Container from "@/components/Container/Container"
-import { IProduct } from "@/types"
+import { useProduct } from "@/hooks"
 
-interface IDiscountProps {
-    items: IProduct[]
-}
+interface IDiscountProps { }
 
-export default function Discount({ items }: IDiscountProps) {
+export default function Discount({ }: IDiscountProps) {
+    const { items } = useProduct('discount')
 
     return (
         <div className={styles.root}>
@@ -20,12 +19,12 @@ export default function Discount({ items }: IDiscountProps) {
                         <Cart
                             categoryTitle={item.title}
                             memory={item.memory[0].title}
-                            color={item.colors[0].title}
+                            color={item.productItemInfo[0].colors[0].title}
                             key={item.id}
                             id={item.id}
                             defaultImage={item.defaultImage}
                             price={item.productItemInfo[0].price}
-                            title={item.title}
+                            productTitle={item.title}
                         />
                     ))}
                 </div>

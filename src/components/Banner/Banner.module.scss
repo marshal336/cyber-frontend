@@ -1,0 +1,36 @@
+.mainBanner {
+  @apply grid 2xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-0 justify-items-center;
+
+  .banner {
+    @apply w-full h-[640px] p-8 flex flex-col justify-around text-center items-center;
+
+
+    &:nth-child(3) {
+      @apply bg-[#EAEAEA]
+    }
+
+    &:last-child {
+      @apply bg-[#2C2C2C] text-white;
+
+      button {
+        @apply border-white;
+      }
+    }
+
+    .info {
+      @apply flex flex-col items-center;
+
+      h2 {
+        @apply 2xl:text-4xl text-xl font-normal w-[296px];
+      }
+
+      p {
+        @apply text-sm font-normal text-gray-400 my-4 w-[296px];
+      }
+    }
+
+    button {
+      @apply block border-black bg-transparent border 2xl:w-[181px] w-[140px] 2xl:h-[56px] h-[46px] rounded;
+    }
+  }
+}
