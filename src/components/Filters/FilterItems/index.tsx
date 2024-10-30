@@ -45,6 +45,8 @@ export default function FilterItems({ ...data }: IFilterItemsProps) {
                         <>
                             {data.items.map(item => (
                                 <Cart
+                                    memory={item.productItemInfo[0].memory[0].title}
+                                    color={item.productItemInfo[0].colors[0].title}
                                     key={item.id}
                                     defaultImage={item.defaultImage}
                                     categoryTitle={item.category.title}

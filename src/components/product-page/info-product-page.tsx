@@ -6,39 +6,45 @@ import Characteristics from "./Characteristics"
 import Delivery from "./Delivery"
 import Memory from "./Memory"
 import { Button } from "../ui"
-import { IProduct } from "@/types"
+import { IProductItemInfo } from "@/types"
 import { characteristicsLogos } from "@/utils/data"
 
-interface IInfoProductPageProps extends IProduct { }
+interface IInfoProductPageProps extends IProductItemInfo { }
 
 export default function InfoProductPage({ ...data }: IInfoProductPageProps) {
-    // const [index, setIndex] = React.useState(0)
-    // const [memory, setMemory] = React.useState(0)
-    // const [input, setInput] = React.useState(50)
-    // const [price, setPrice] = React.useState(0)
-    // const [color, setColor] = React.useState(0)
-    // const [more, setMore] = React.useState(false)
-    // const [comment, setComment] = React.useState(false)
 
-    const items = characteristicsLogos.map(({ item }, i) => ({
-        item,
-        title: data.productItemInfo[i + 1]
-    }))
-    console.log(items);
 
     return (
         <div className={styles.info}>
-            <h2>{data.title}</h2>
+            <h2>{data.product.title}</h2>
             <div className={styles.price}>
-                <p className={`text-4xl text-black`}>${data.productItemInfo[0].price}</p>
+                <p className={`text-4xl text-black`}>${data.totalPrice}</p>
             </div>
 
-            <Colors colors={data.productItemInfo[0].colors} />
-            <Memory memorys={data.productItemInfo[0].memory} />
+            <Colors
+                memory={data.memory[0].title}
+                categoryTitle={data.product.category.title}
+                productTitle={data.product.title}
+                productColorId={data.product.colorId}
+                colors={data.product.colors} />
 
-            {/* <Characteristics  /> */}
+            <Memory
+                memoryId={data.memory[0].id}
+                categoryTitle={data.product.category.title}
+                color={data.colors[0].title}
+                productTitle={data.product.title}
+                memorys={data.product.memory} />
 
-            <div className={styles.descriprion}>{data.productItemInfo[0].description}</div>
+            <div className={styles.characteristics}>
+                <Characteristics title="Screen size" value={data.screenSize} logo={characteristicsLogos[0].item} />
+                <Characteristics title="CPU" value={data.CPU} logo={characteristicsLogos[1].item} />
+                <Characteristics title="Number of Cores" value={data.cores} logo={characteristicsLogos[2].item} />
+                <Characteristics title="Main camera" value={data.mainCamera} logo={characteristicsLogos[3].item} />
+                <Characteristics title="Front-camera" value={data.frontCamera} logo={characteristicsLogos[4].item} />
+                <Characteristics title="Battery capacity" value={data.battery} logo={characteristicsLogos[5].item} />
+            </div>
+
+            <div className={styles.descriprion}>{data.description}</div>
 
             <div className={styles.buttons}>
                 {['Add to Wishlist', 'Add to Card'].map((el, i) => (

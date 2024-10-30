@@ -8,7 +8,7 @@
             @apply sxs:w-[74px] w-[60] sxs:h-[100px] h-[89px] rounded-md;
 
             img {
-                @apply max-w-full;
+                @apply max-w-full flex justify-center items-center mt-5;
             }
         }
     }

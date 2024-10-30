@@ -5,6 +5,7 @@ import { CustomInput } from '@/components'
 import { IProduct } from '@/types'
 import Link from 'next/link'
 import { useClickAway } from 'react-use'
+import { validPath } from '@/utils'
 
 interface IHeaderInputProps {
     input: string,
@@ -26,6 +27,8 @@ export default function HeaderInput({
     useClickAway(ref, () => {
         setFocus?.(false)
     })
+    console.log(items);
+
     return (
         <>
 
@@ -46,7 +49,7 @@ export default function HeaderInput({
                             <Link
                                 onClick={() => setFocus?.(false)}
                                 key={item.id}
-                                href={`/catalog/${item.category.title.toLowerCase()}/${item.title.replace(/\s+/g, '-').toLowerCase()}-id-${item.id}`}
+                                href={`${validPath(item.category.title, item.title, item.memory[0].title, item.colors[0].title)}`}
                                 className="flex px-5 justify-between items-center hover:scale-[1.01] py-3 transition-all">
                                 <div className="flex gap-4 items-center">
                                     <div className="sm:w-10 sm:h-10 h-6 w-6">

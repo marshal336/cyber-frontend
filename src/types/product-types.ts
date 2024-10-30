@@ -1,20 +1,26 @@
 import { SearchParams } from "@/hooks"
 
-export interface IProduct {
+export interface DefaultProduct {
     id: number
     title: string
+    bestSeller: number
+    categoryId: number
+    colorId: number
+    discount: number
     defaultImage: string
     createdAt: string
     updatedAt: string
-    bestSeller: number
-    discount: number
-    categoryId: number
-    productItemInfo: IProductItemInfo[]
+    colors: IProductItemInfoColors[]
+    memory: IProductItemInfoMemorys[]
     category: IProductCategory
+}
+export interface IProduct extends DefaultProduct {
+    productItemInfo: IProductItemInfo[]
 }
 export interface IProductItemInfoColors {
     id: number
     color: string
+    title: string
     createdAt: string
     updatedAt: string
 }
@@ -62,15 +68,23 @@ export interface IProductItemInfo {
     brandId: number
     productId: number
     price: number
+    totalPrice: number
     description: string
     screenResolution: string
     createdAt: string
     updatedAt: string
-    brand: IProductItemInfoBrand
     colors: IProductItemInfoColors[]
-    imagesUrl: IProductItemInfoImages[]
     memory: IProductItemInfoMemorys[]
+    brand: IProductItemInfoBrand
+    imagesUrl: IProductItemInfoImages[]
+    product: IProduct
     screenType: IProductItemInfoScreenType
+}
+
+export interface IFindByArgs {
+    title: string
+    memory: string
+    color: string
 }
 
 export interface IUseProductState {

@@ -9,6 +9,9 @@
         @apply flex gap-4 items-center;
     }
 
+    .characteristics {
+        @apply grid lg:grid-cols-3 grid-cols-2 lg:grid-rows-2 grid-rows-3 xl:w-[540px] md:w-[516px] sxs:w-[341px] w-[300px] gap-4;
+    }
 
     .descriprion {
         @apply max-w-[560px];

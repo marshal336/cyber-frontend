@@ -32,6 +32,8 @@ export default function Tab() {
                 <TabsContentItem value={item.name} className='flex lg:justify-between justify-center flex-wrap gap-4'>
                     {items.slice(0, 4).map(item => (
                         <Cart
+                            memory={item.memory[0].title}
+                            color={item.colors[0].title}
                             key={item.id}
                             id={item.id}
                             defaultImage={item.defaultImage}

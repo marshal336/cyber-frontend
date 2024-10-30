@@ -6,7 +6,7 @@ import styles from './Cart.module.scss'
 import { Card, CardContent, Button } from "@/components/ui"
 import { CiHeart } from "react-icons/ci";
 import { cn } from "@/lib/utils"
-import { PAGES_DASHBOARD } from "@/utils"
+import { PAGES_DASHBOARD, validPath } from "@/utils"
 
 
 interface ICartProps {
@@ -17,15 +17,16 @@ interface ICartProps {
     bestSeller?: number
     discount?: number
     categoryTitle: string
+    memory: string,
+    color: string
 }
 
 export default function Cart({ ...data }: ICartProps) {
     const [hover, setHover] = React.useState(false)
-
-    const path = `${data.categoryTitle.toLowerCase()}/${data.title.replace(/\s+/g, '-').toLowerCase()}-id-${data.id}`
+    const path = validPath(data.categoryTitle, data.title, data.memory, data.color)
 
     return (
-        <Link href={`${PAGES_DASHBOARD.CATALOG}/${path}`}>
+        <Link href={`${path}`}>
             <Card
                 onMouseEnter={() => setHover(!hover)}
                 onMouseLeave={() => setHover(false)}

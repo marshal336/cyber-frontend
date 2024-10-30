@@ -10,14 +10,12 @@ interface ICharacteristicsProps {
 export default function Characteristics({ ...data }: ICharacteristicsProps) {
 
     return (
-        <div className={styles.characteristics}>
-            <div className={styles.characteristicsItem}>
-                {data.logo}
-                <p>
-                    <span>{data.title}</span>
-                    <span>{data.value}</span>
-                </p>
-            </div>
+        <div className={styles.characteristicsItem}>
+            {data.logo}
+            <p>
+                <span>{data.title}</span>
+                <span>{data.value}</span>
+            </p>
         </div>
     )
 
