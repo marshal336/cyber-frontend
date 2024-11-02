@@ -1,0 +1,31 @@
+.focus {
+    @apply absolute !inset-0 z-10 bg-black/50;
+}
+
+.root {
+    @apply w-full z-20 flex-1 relative border rounded-lg;
+
+    .inputBlock {
+        @apply absolute flex py-4 flex-col gap-4 w-full bg-white top-[110%] sm:h-[300px] h-[200px] z-20 transition-all invisible opacity-0 overflow-y-auto overflow-x-hidden duration-300 rounded-md left-0 -translate-y-1;
+
+        .link {
+            @apply flex px-5 justify-between items-center hover:scale-[1.01] py-3 transition-all;
+
+            .items {
+                @apply flex gap-4 items-center;
+
+                .img {
+                    @apply sm:w-10 sm:h-10 h-6 w-6
+                }
+
+                .h2 {
+                    @apply font-bold sm:text-base text-xs
+                }
+            }
+
+            .span {
+                @apply sm:text-base text-xs hidden xls:block
+            }
+        }
+    }
+}

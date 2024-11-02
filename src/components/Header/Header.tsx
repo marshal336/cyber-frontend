@@ -4,25 +4,26 @@ import Image from "next/image";
 import styles from "./Header.module.scss";
 import Link from 'next/link';
 import MobileMenu from "./MobileMenu";
+import HeaderInput from "./HeaderInput";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { headerLinks } from "../../utils/data";
 import { CartDrawer, Container, CustomInput } from "..";
 import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci";
-import { cn } from "@/lib/utils";
-import { useProductsStore } from "@/services/store/product/products";
-import { time } from "console";
-import HeaderInput from "./HeaderInput";
 import { useInputSearchStore } from "@/services/store/product/input-search";
+import { PAGES_DASHBOARD } from "@/utils";
 
 
-interface IHeaderProps { }
+interface IHeaderProps {
+    isValidProfileIcon?: boolean
+}
 
-export default function Header({ }: IHeaderProps) {
+export default function Header({
+    isValidProfileIcon = true
+}: IHeaderProps) {
     const [input, setInput] = React.useState("");
     const [focus, setFocus] = React.useState(false);
     const { findAllProductsByNames } = useInputSearchStore(state => state)
     const { items } = useInputSearchStore(state => state)
-
 
     React.useEffect(() => {
         findAllProductsByNames(input)
@@ -62,9 +63,11 @@ export default function Header({ }: IHeaderProps) {
                             <CiShoppingCart className="text-[28px]" />
                         </CartDrawer>
 
-                        <Link href={'/'}>
-                            <CiUser />
-                        </Link>
+                        {isValidProfileIcon && (
+                            <Link href={PAGES_DASHBOARD.PROFILE}>
+                                <CiUser />
+                            </Link>
+                        )}
                     </div>
                 </div>
 

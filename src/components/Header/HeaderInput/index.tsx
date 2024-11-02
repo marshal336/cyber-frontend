@@ -3,7 +3,9 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 import { CustomInput } from '@/components'
 import { IProduct } from '@/types'
+import styles from './HeaderInput.module.scss'
 import Link from 'next/link'
+
 import { useClickAway } from 'react-use'
 import { validPath } from '@/utils'
 
@@ -31,7 +33,7 @@ export default function HeaderInput({
     return (
         <>
 
-            {focus && <div className="absolute !inset-0 z-10 bg-black/50 " />}
+            {focus && <div className="absolute !inset-0 z-10 bg-black/50" />}
             <div ref={ref} className="w-full z-20 flex-1 relative border rounded-lg">
                 <CustomInput
                     focus={focus}

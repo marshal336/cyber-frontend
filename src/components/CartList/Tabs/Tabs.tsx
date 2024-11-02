@@ -14,7 +14,6 @@ import { Values, Variant } from '@/utils';
 export default function Tab() {
     const [key, setKey] = React.useState<Variant['value']>('new-arrival')
     const { items } = useProduct(key)
-    console.log(items);
 
     return (
         <Tabs defaultValue={Values[0].name} className={styles.tab}>

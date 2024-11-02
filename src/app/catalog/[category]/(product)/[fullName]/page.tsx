@@ -2,14 +2,14 @@ import React from 'react'
 import Images from '@/components/product-page/Images'
 import { Container } from '@/components'
 import { InfoProductPage } from '@/components/product-page'
-import { instance } from '@/services/api/instance'
+import { axiosClassic } from '@/services/api/instance'
 import { IFindByArgs, IProductItemInfo } from '@/types'
 import { parseName } from '@/utils'
 
 
 async function getItem(body: IFindByArgs) {
     try {
-        const { data } = await instance.post<IProductItemInfo>(`/products/`, body)
+        const { data } = await axiosClassic.post<IProductItemInfo>(`/products/`, body)
         return data
     } catch (error) {
         console.log(error);
