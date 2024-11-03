@@ -11,6 +11,7 @@ import { CartDrawer, Container, CustomInput } from "..";
 import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci";
 import { useInputSearchStore } from "@/services/store/product/input-search";
 import { PAGES_DASHBOARD } from "@/utils";
+import { useCartStore } from "@/services/store/cart";
 
 
 interface IHeaderProps {
@@ -24,10 +25,12 @@ export default function Header({
     const [focus, setFocus] = React.useState(false);
     const { findAllProductsByNames } = useInputSearchStore(state => state)
     const { items } = useInputSearchStore(state => state)
+    const { cart } = useCartStore(state => state)
 
     React.useEffect(() => {
         findAllProductsByNames(input)
     }, [input])
+    console.log(!cart);
 
     return (
         <header className={styles.root}>
@@ -60,11 +63,16 @@ export default function Header({
                         </Link>
 
                         <CartDrawer>
-                            <CiShoppingCart className="text-[28px]" />
+                            <div className="relative">
+                                <CiShoppingCart className="text-[28px]" />
+                                {(cart && cart?.cartItems.length > 0) && (
+                                    <p className="absolute top-0 right-0 bg-red-400 rounded-full text-white px-[6px] py-[1px] text-xs ">{cart?.cartItems.length}</p>
+                                )}
+                            </div>
                         </CartDrawer>
 
                         {isValidProfileIcon && (
-                            <Link href={PAGES_DASHBOARD.PROFILE}>
+                            <Link href={`/${PAGES_DASHBOARD.PROFILE}`}>
                                 <CiUser />
                             </Link>
                         )}

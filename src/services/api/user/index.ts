@@ -36,5 +36,39 @@ export const User = {
                 className: 'bg-red-500 text-white border-none'
             })
         }
+    },
+    logout: async () => {
+        try {
+            const res = await axiosAuth.delete<boolean>(`/user/logout`)
+            if (res.status === 200, res.data) {
+                Cookies.remove(TOKENS.ACCESS_TOKEN)
+                toast.success('Logout success', {
+                    className: 'bg-green-500 text-white border-none'
+                })
+            }
+        } catch (error) {
+            const message = Error(error)
+            toast.error(message, {
+                className: 'bg-red-500 text-white border-none'
+            })
+        }
+    },
+    getNewTokens: async () => {
+        try {
+            const res = await axiosClassic.post<IUser>(`/auth/login/access-token`)
+            if (res.status === 200 && res.data.accessToken) {
+                Cookies.set(TOKENS.ACCESS_TOKEN, res.data.accessToken, {
+                    sameSite: 'strict',
+                    secure: true
+                })
+                return res.data
+            }
+        } catch (error) {
+            const message = Error(error)
+            toast.error(message, {
+                className: 'bg-red-500 text-white border-none'
+            })
+            throw error
+        }
     }
 }

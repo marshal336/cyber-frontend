@@ -94,9 +94,6 @@ export interface IUseProductState {
     total: number
     getBySearchParams: (searchParams: Partial<SearchParams>) => Promise<void>
     getByCategory: (categoryName: string) => Promise<void>
-    updateItemQuantity: (id: number, quantity: number) => Promise<void>
-    addCartItem: (id: number) => Promise<void>
-    removeCartItem: (id: number) => Promise<void>
     getByNewArrival: () => Promise<void>
     getByBestSeller: () => Promise<void>
     getAllProducts: () => Promise<void>

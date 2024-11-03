@@ -1,0 +1,12 @@
+.cart{
+    @apply flex justify-center flex-col mt-[100px];
+
+    .cartTitle{
+        @apply w-[26%] flex justify-end text-2xl max-md:w-[50%];
+    }
+
+    .cartContent{
+        @apply  flex justify-center items-center max-md:flex-col ;
+    }
+
+}

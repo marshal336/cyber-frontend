@@ -68,7 +68,4 @@ export const useProductsStore = create<IUseProductState>((set, get) => ({
             set({ loading: false })
         }
     },
-    addCartItem: async () => { },
-    removeCartItem: async () => { },
-    updateItemQuantity: async () => { },
 }))

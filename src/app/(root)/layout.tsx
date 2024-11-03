@@ -9,17 +9,14 @@ export const metadata: Metadata = {
 
 export default function HomeLayout({
     children,
-    catalog
 }: Readonly<{
     children: React.ReactNode;
-    catalog: React.ReactNode
 }>) {
     return (
         <main>
             <QueryProvider>
                 <Header />
                 {children}
-                {catalog}
                 <Footer />
             </QueryProvider>
         </main>

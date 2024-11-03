@@ -23,7 +23,11 @@ export enum PAGES_DASHBOARD {
     BUYING = '/buying',
 
 }
-
+export enum ERRORS {
+    JWT_EXPIRED = 'jwt expired',
+    UNAUTHORIZED = 'Unauthorized',
+    NOT_TOKEN = 'Refresh token no passed',
+}
 export type Variant = {
     name: string
     value: 'all' | 'new-arrival' | 'best-seller' | 'discount'

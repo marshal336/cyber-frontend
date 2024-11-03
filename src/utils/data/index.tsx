@@ -86,3 +86,12 @@ export const bannerLinks = [
   { logo: '/popularItems/3.png', title: "Samsung Galaxy", description: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.", },
   { logo: '/popularItems/4.png', title: "Macbook Pro", description: "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.", },
 ]
+
+
+export const cartItems = [
+  { id: "#25139526913984", img: '/cart/Iphone14.png', name: "Apple iPhone 14 Pro Max Deep Purple", price: 1399, quantity: 1 },
+  { id: "#25139526913984", img: '/cart/Iphone14.png', name: "Apple iPhone 14 Pro Max Deep Purple", price: 1399, quantity: 1 },
+  { id: "#25139526913984", img: '/cart/Iphone14.png', name: "Apple iPhone 14 Pro Max Deep Purple", price: 1399, quantity: 1 },
+  { id: "#25139526913984", img: '/cart/Iphone14.png', name: "Apple iPhone 14 Pro Max Deep Purple", price: 1399, quantity: 1 },
+  { id: "#25139526913984", img: '/cart/Iphone14.png', name: "Apple iPhone 14 Pro Max Deep Purple", price: 1399, quantity: 1 },
+]

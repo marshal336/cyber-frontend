@@ -8,11 +8,12 @@ import Memory from "./Memory"
 import { Button } from "../ui"
 import { IProductItemInfo } from "@/types"
 import { characteristicsLogos } from "@/utils/data"
+import { useCartStore } from "@/services/store/cart"
 
 interface IInfoProductPageProps extends IProductItemInfo { }
 
 export default function InfoProductPage({ ...data }: IInfoProductPageProps) {
-
+    const { create } = useCartStore(state => state)
 
     return (
         <div className={styles.info}>
@@ -47,9 +48,11 @@ export default function InfoProductPage({ ...data }: IInfoProductPageProps) {
             <div className={styles.descriprion}>{data.description}</div>
 
             <div className={styles.buttons}>
-                {['Add to Wishlist', 'Add to Card'].map((el, i) => (
-                    <Button size={'lg'} key={i} variant={i === 0 ? 'outline' : 'default'}>{el}</Button>
-                ))}
+                <Button size={'lg'} variant={'outline'}>Add to Wishlist</Button>
+                <Button
+                    onClick={() => create(data.id)}
+                    size={'lg'}
+                    variant={'default'}>Add to Card</Button>
             </div>
 
             <Delivery />

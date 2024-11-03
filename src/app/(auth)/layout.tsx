@@ -1,7 +1,10 @@
 import { QueryProvider } from "@/providers";
+import { Metadata } from "next";
 import { Toaster } from "sonner";
 
-
+export const metadata: Metadata = {
+    title: 'Auth'
+}
 
 export default function AuthLayout({
     children,
