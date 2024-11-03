@@ -13,7 +13,7 @@ export default function AuthLayout({
 }>) {
 
     return (
-        <main className="bg-stone-500/50 min-h-screen flex flex-col items-center justify-center m-auto">
+        <main className="min-h-screen flex flex-col items-center justify-center m-auto">
             <QueryProvider>
                 {children}
                 <Toaster expand />
