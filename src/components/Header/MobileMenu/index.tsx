@@ -12,6 +12,7 @@ import {
 import { headerLinks } from "@/utils/data"
 import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci"
 import CartDrawer from "@/components/CartDrawer/CartDrawer"
+import { PAGES_DASHBOARD } from "@/utils"
 
 interface IDropProps {
     headerLinks: typeof headerLinks
@@ -52,7 +53,7 @@ export default function MobileMenu({ headerLinks, children }: React.PropsWithChi
                     </CartDrawer>
 
                     <DropdownMenuItem>
-                        <Link href={'/'} className="flex items-center gap-3">
+                        <Link href={`/${PAGES_DASHBOARD.PROFILE}`} className="flex items-center gap-3">
                             <CiUser className={'text-3xl'} />
                             <p className={'text-2xl cursor-pointer'}>Profile</p>
                         </Link>
