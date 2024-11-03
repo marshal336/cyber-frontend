@@ -11,7 +11,7 @@ import { PAGES_DASHBOARD } from '@/utils'
 export default function Profile() {
     const { push } = useRouter()
 
-    const { data, isLoading, error, refetch } = useQuery({
+    const { data, isLoading, error, } = useQuery({
         queryKey: ['profile'],
         queryFn: () => User.profile(),
     })

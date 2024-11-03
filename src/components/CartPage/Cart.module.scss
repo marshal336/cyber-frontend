@@ -1,0 +1,17 @@
+.cart {
+    @apply flex flex-col mt-[100px];
+
+    .cartTitle {
+        @apply w-[26%] text-2xl max-md:w-[50%];
+    }
+
+    .cartContent {
+        @apply flex gap-12 items-start max-md:flex-col;
+
+        .cartItems {
+            @apply h-[656px] overflow-auto;
+            scrollbar-width: none;
+        }
+    }
+
+}

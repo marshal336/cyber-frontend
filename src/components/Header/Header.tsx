@@ -16,10 +16,12 @@ import { useCartStore } from "@/services/store/cart";
 
 interface IHeaderProps {
     isValidProfileIcon?: boolean
+    isValidCartIcon?: boolean
 }
 
 export default function Header({
-    isValidProfileIcon = true
+    isValidProfileIcon = true,
+    isValidCartIcon = true
 }: IHeaderProps) {
     const [input, setInput] = React.useState("");
     const [focus, setFocus] = React.useState(false);
@@ -30,7 +32,6 @@ export default function Header({
     React.useEffect(() => {
         findAllProductsByNames(input)
     }, [input])
-    console.log(!cart);
 
     return (
         <header className={styles.root}>
@@ -62,14 +63,16 @@ export default function Header({
                             <CiHeart />
                         </Link>
 
-                        <CartDrawer>
-                            <div className="relative">
-                                <CiShoppingCart className="text-[28px]" />
-                                {(cart && cart?.cartItems.length > 0) && (
-                                    <p className="absolute top-0 right-0 bg-red-400 rounded-full text-white px-[6px] py-[1px] text-xs ">{cart?.cartItems.length}</p>
-                                )}
-                            </div>
-                        </CartDrawer>
+                        {isValidCartIcon && (
+                            <CartDrawer>
+                                <div className="relative">
+                                    <CiShoppingCart className="text-[28px]" />
+                                    {(cart && cart?.cartItems.length > 0) && (
+                                        <p className="absolute top-0 right-0 bg-red-400 rounded-full text-white px-[6px] py-[1px] text-xs ">{cart?.cartItems.length}</p>
+                                    )}
+                                </div>
+                            </CartDrawer>
+                        )}
 
                         {isValidProfileIcon && (
                             <Link href={`/${PAGES_DASHBOARD.PROFILE}`}>

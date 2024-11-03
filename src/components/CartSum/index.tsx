@@ -1,7 +1,12 @@
 import Link from "next/link";
 import styles from "./CartSum.module.scss";
 
-export default function CartSum() {
+
+interface ICartSum {
+  total?: number
+}
+
+export default function CartSum({ total }: ICartSum) {
   return (
     <div className={styles.cartSum}>
       <div className={styles.cartTitle}>
@@ -37,7 +42,7 @@ export default function CartSum() {
 
         <div>
           <h3>Total</h3>
-          <p>$1478</p>
+          <p>${total}</p>
         </div>
       </div>
       <div className={styles.cartLink}>
