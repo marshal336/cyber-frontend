@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
 import { cn } from "@/lib/utils";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function MainLayout({
         <html lang="en">
             <body className={cn(inter.className,)}>
                 {children}
+                <Toaster position="bottom-right" expand/>
             </body>
         </html>
     );

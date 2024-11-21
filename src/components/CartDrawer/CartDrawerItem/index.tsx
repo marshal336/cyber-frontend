@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './CartDrawerItems.module.scss'
 import { CiTrash } from 'react-icons/ci';
 import { Button } from '@/components/ui';
+import { cn } from '@/lib/utils';
 
 interface ICartDrawerItemProps {
     className?: string
@@ -18,7 +19,7 @@ interface ICartDrawerItemProps {
 export default function CartDrawerItem({ ...data }: ICartDrawerItemProps) {
 
     return (
-        <div className={styles.cartItem}>
+        <div className={cn(styles.cartItem, data.className)}>
             <div className={styles.cartImage}>
                 <img src={data.img} />
             </div>

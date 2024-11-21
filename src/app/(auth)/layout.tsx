@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
-    title: 'Auth'
+    title: 'Cyber Shop | Auth'
 }
 
 export default function AuthLayout({
@@ -16,7 +16,6 @@ export default function AuthLayout({
         <main className="min-h-screen flex flex-col items-center justify-center m-auto">
             <QueryProvider>
                 {children}
-                <Toaster expand />
             </QueryProvider>
         </main>
     );

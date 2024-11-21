@@ -3,6 +3,7 @@ import { axiosClassic, axiosAuth } from "../instance";
 import Cookies from "js-cookie";
 import { Error, PAGES_DASHBOARD, TOKENS } from "@/utils";
 import { toast } from "sonner";
+import { IProfileInputs } from "@/components/ProfilePage";
 
 export const User = {
     main: async (data: IAuth, variant: 'login' | 'register') => {
@@ -27,6 +28,19 @@ export const User = {
     profile: async () => {
         try {
             const res = await axiosAuth.get<Omit<IUser, 'accessToken'>>(`/user/${PAGES_DASHBOARD.PROFILE}`)
+            if (res.status === 200) {
+                return res.data
+            }
+        } catch (error) {
+            const message = Error(error)
+            toast.error(message, {
+                className: 'bg-red-500 text-white border-none'
+            })
+        }
+    },
+    changeProfile: async (data: Partial<IProfileInputs>) => {
+        try {
+            const res = await axiosAuth.post<Omit<IUser, 'accessToken'>>(`/user/${PAGES_DASHBOARD.PROFILE}`, data)
             if (res.status === 200) {
                 return res.data
             }

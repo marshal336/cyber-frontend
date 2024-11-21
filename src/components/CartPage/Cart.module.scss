@@ -1,12 +1,12 @@
 .cart {
-    @apply flex flex-col mt-[100px];
+    @apply  mt-[80px] items-center mb-4 ;
 
     .cartTitle {
-        @apply w-[26%] text-2xl max-md:w-[50%];
+        @apply w-full text-2xl;
     }
 
     .cartContent {
-        @apply flex gap-12 items-start max-md:flex-col;
+        @apply flex justify-center items-center gap-10 max-lg:flex-col;
 
         .cartItems {
             @apply h-[656px] overflow-auto;

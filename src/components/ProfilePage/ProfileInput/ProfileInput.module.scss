@@ -1,0 +1,6 @@
+.input {
+    @apply flex flex-col gap-2;
+    input {
+      @apply bg-black/5 border-none outline-none h-[52px] px-5 py-3 rounded-l;
+    }
+  }

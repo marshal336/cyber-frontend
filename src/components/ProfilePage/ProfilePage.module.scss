@@ -1,0 +1,20 @@
+.info {
+  @apply flex items-center gap-4;
+  .logo {
+    @apply rounded-full xs:w-[100px] w-[50px] xs:h-[100px] h-[50px] border border-black;
+  }
+  .inf {
+    @apply flex flex-col gap-2;
+    h3 {
+      @apply sm:text-xl text-base font-bold;
+    }
+    p {
+      @apply sm:text-lg text-sm opacity-50;
+    }
+  }
+}
+
+.inputs {
+  @apply mt-8 grid sm:grid-cols-2 grid-cols-1 gap-x-8 sm:gap-y-7 gap-y-5;
+
+}

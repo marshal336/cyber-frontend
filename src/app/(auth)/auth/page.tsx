@@ -1,6 +1,5 @@
 import React from 'react'
 import AuthForm from '@/components/AuthForm'
-import { Container } from '@/components'
 
 export default function Auth() {
     return (

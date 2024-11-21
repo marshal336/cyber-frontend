@@ -10,6 +10,10 @@ export interface IUser {
     id: string
     fullName?: string
     email: string
+    city: string;
+    country: string;
+    phoneNumber: string;
+    pictures: string;
     role: string
     createdAt: string
     updatedAt: string

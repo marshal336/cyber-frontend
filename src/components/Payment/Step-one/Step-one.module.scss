@@ -1,0 +1,47 @@
+.adress {
+  @apply mt-12 rounded-lg;
+  background: rgb(246, 246, 246);
+  .item {
+    @apply flex items-start p-6 gap-2;
+
+    button {
+      @apply mt-1;
+    }
+
+    .info {
+      @apply flex sm:gap-4 max-xs:flex-col xs:gap-2 gap-4 xs:items-center items-start justify-between w-full mx-auto;
+
+      .Flex {
+        @apply flex flex-col gap-4;
+
+        input {
+          @apply outline-none border-none bg-transparent;
+          &:first-child {
+            @apply font-semibold text-lg sxs:w-auto w-[150px];
+          }
+        }
+      }
+
+      .icon {
+        @apply flex gap-3 items-center;
+
+        svg {
+          @apply text-xl cursor-pointer;
+
+          &:last-child {
+            @apply text-3xl;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.buttons {
+  @apply flex sm:justify-end flex-wrap justify-center gap-4 my-12;
+
+  button {
+    @apply w-[207px] h-16 text-base;
+  }
+}

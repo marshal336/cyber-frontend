@@ -34,7 +34,7 @@ export default function HeaderInput({
         <>
 
             {focus && <div className="absolute !inset-0 z-10 bg-black/50" />}
-            <div ref={ref} className="w-full z-20 flex-1 relative border rounded-lg">
+            <div ref={ref} className="w-full z-30 flex-1 relative border rounded-lg">
                 <CustomInput
                     focus={focus}
                     input={input}

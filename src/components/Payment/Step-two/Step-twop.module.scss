@@ -1,0 +1,19 @@
+.snipnet {
+  @apply flex flex-col gap-8;
+
+  h2 {
+    @apply lg:text-2xl text-lg p-0;
+  }
+
+  .methods {
+    @apply flex flex-col gap-2;
+
+  }
+}
+.buttons {
+  @apply flex sm:justify-end flex-wrap justify-center gap-4 my-12;
+
+  button {
+    @apply w-[207px] h-16 text-base;
+  }
+}

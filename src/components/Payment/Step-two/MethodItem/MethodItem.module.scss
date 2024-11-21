@@ -1,0 +1,11 @@
+.method {
+  @apply flex flex-1 items-start gap-4 border border-black/20 rounded-xl p-6;
+
+  .item {
+    @apply flex sm:items-center max-sm:flex-col items-start flex-1 gap-3 justify-between;
+
+    .info {
+      @apply flex items-center gap-4;
+    }
+  }
+}

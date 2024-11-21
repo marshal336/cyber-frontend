@@ -1,67 +1,76 @@
-import Link from "next/link"
-import React from "react"
-import styles from './MobileMenu.module.scss'
+"use client";
+import Link from "next/link";
+import styles from "./MobileMenu.module.scss";
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger
-} from "@/components/ui"
-import { headerLinks } from "@/utils/data"
-import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci"
-import CartDrawer from "@/components/CartDrawer/CartDrawer"
-import { PAGES_DASHBOARD } from "@/utils"
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+} from "@/components/ui";
+import { headerLinks } from "@/utils/data";
+import CartDrawer from "@/components/CartDrawer/CartDrawer";
+import { PAGES_DASHBOARD } from "@/utils";
+import { useInputSearchStore } from "@/services/store/product/input-search";
+import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci";
+import { useCartStore } from "@/services/store/cart";
 
-interface IDropProps {
-    headerLinks: typeof headerLinks
+interface IMobileMenu {
+  isValidProfileIcon?: boolean;
+  isValidCartIcon?: boolean;
 }
-export default function MobileMenu({ headerLinks, children }: React.PropsWithChildren<IDropProps>) {
 
-    return (
-        <DropdownMenu>
-            <DropdownMenuTrigger className="outline-none" >
-                {children}
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className={styles.root}>
-                <DropdownMenuLabel className={styles.label}>My Account</DropdownMenuLabel>
-                <DropdownMenuSeparator className={styles.separator} />
-                <DropdownMenuItem className={styles.links}>
-                    {headerLinks.map((el, i) => (
-                        <Link href={el.link} className="flex items-center gap-3" key={i}>
-                            <p className={styles.logo}>{el.logo}</p>
-                            <h2 className={styles.title}>{el.title}</h2>
-                        </Link>
-                    ))}
-                </DropdownMenuItem>
-                <DropdownMenuSeparator className={styles.separator} />
+export default function MobileMenu({
+  children,
+  isValidCartIcon = true,
+  isValidProfileIcon = true,
+}: React.PropsWithChildren<IMobileMenu>) {
+  const { cart } = useCartStore((state) => state);
+  const { items } = useInputSearchStore((state) => state);
 
-                <div className={'flex flex-col'}>
-                    <DropdownMenuItem className={styles.links}>
-                        <Link href={'/'} className="flex items-center gap-3">
-                            <CiHeart className={styles.logo} />
-                            <p className={styles.title}>Favofite</p>
-                        </Link>
-                    </DropdownMenuItem>
+  return (
+    <Sheet>
+      <SheetTrigger>{children}</SheetTrigger>
+      <SheetContent className="">
+        <SheetHeader className={styles.header}>
+          Menu
+        </SheetHeader>
+        <div className={styles.links}>
+          {headerLinks.map(({ link, logo, title }) => (
+            <Link href={link} className="flex gap-3  items-center">
+              <div className="text-4xl">{logo}</div>
+              <h3 className="text-2xl">{title}</h3>
+            </Link>
+          ))}
+        </div>
+        <div className="h-[2px] w-full bg-black/50 my-4" />
+        <div className="mt-5 flex flex-col gap-2">
+          <Link href={"/"} className="flex gap-2 items-center">
+            <CiHeart className="text-4xl"/>
+            <p className="text-2xl">Favorite</p>
+          </Link>
 
-                    <CartDrawer >
-                        <div className="flex items-center gap-3 ml-[8px]">
-                            <CiShoppingCart className={'text-3xl'} />
-                            <p className={'text-2xl cursor-pointer'}>Cart</p>
-                        </div>
-                    </CartDrawer>
+          {isValidCartIcon && (
+            <CartDrawer>
+              <div className="relative flex gap-2 items-center">
+                <CiShoppingCart className="text-4xl" />
+                <p className="text-2xl">Cart</p>
+                {cart && cart?.cartItems.length > 0 && (
+                  <p className="absolute top-0 right-0 bg-red-400 rounded-full text-white px-[6px] py-[1px] text-xs ">
+                    {cart?.cartItems.length}
+                  </p>
+                )}
+              </div>
+            </CartDrawer>
+          )}
 
-                    <DropdownMenuItem>
-                        <Link href={`/${PAGES_DASHBOARD.PROFILE}`} className="flex items-center gap-3">
-                            <CiUser className={'text-3xl'} />
-                            <p className={'text-2xl cursor-pointer'}>Profile</p>
-                        </Link>
-                    </DropdownMenuItem>
-
-                </div>
-            </DropdownMenuContent>
-        </DropdownMenu>
-    )
-
+          {isValidProfileIcon && (
+            <Link href={`/${PAGES_DASHBOARD.PROFILE}`} className="flex items-center gap-2">
+              <CiUser className="text-4xl"/>
+              <p className="text-2xl">Profile</p>
+            </Link>
+          )}
+        </div>
+      </SheetContent>
+    </Sheet>
+  );
 }

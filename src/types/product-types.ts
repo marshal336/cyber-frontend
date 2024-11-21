@@ -30,6 +30,9 @@ export interface IProductCategory {
     createdAt: string
     updatedAt: string
 }
+export interface IProductFilters extends IProductCategory {
+    productItemInfo: IProductItemInfo[]
+}
 export interface IProductItemInfoBrand {
     id: number
     title: string

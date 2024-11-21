@@ -1,0 +1,19 @@
+.road {
+  @apply px-4 flex gap-3 flex-wrap justify-between items-center sm:py-[72px] py-[50px];
+
+  .item {
+    @apply flex justify-between items-center gap-2;
+
+    svg {
+      @apply bg-black rounded-full text-white w-[30px] h-[30px] p-2;
+    }
+
+    p {
+      @apply flex flex-col;
+
+      span:last-child {
+        @apply sm:text-xl text-lg font-medium;
+      }
+    }
+  }
+}

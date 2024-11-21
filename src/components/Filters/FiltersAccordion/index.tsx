@@ -12,7 +12,6 @@ interface IFiltersAccordionProps {
     input?: string,
     isValidInput?: boolean
     activeId?: Set<number>,
-    itemsLength?: number
     setInput?: (input: string) => void
     setActiveId?: (id: number) => void
 }
@@ -28,11 +27,10 @@ export default function FiltersAccordion({ ...data }: IFiltersAccordionProps) {
                         className='w-full h-10 mx-auto'
                         input={data.input}
                         setInput={data.setInput} />}
-
                     {data.items
                         .map(item => (
                             <FilterChecbox
-                                itemsLength={data.itemsLength}
+                                itemsLength={item.productItemInfo.length}
                                 checked={data.activeId?.has(item.id)}
                                 onCheckedChange={() => data.setActiveId?.(item.id)}
                                 key={item.id}

@@ -1,0 +1,19 @@
+.detailss {
+  @apply flex flex-col gap-4;
+
+  h2 {
+    @apply text-xl font-medium;
+  }
+
+  .detailItem {
+    @apply flex flex-col gap-6;
+
+    .separator {
+      @apply flex justify-between items-start border-b border-b-black/15 pb-2;
+
+      p:last-child {
+        @apply max-w-[118px] text-right;
+      }
+    }
+  }
+}
