@@ -8,8 +8,6 @@ interface IDetailItemProps {
 }
 
 export default function DetailItem({ title, info }: IDetailItemProps) {
-  console.log(info);
-
   return (
     <div className={styles.detailss}>
       <h2>{title}</h2>

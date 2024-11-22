@@ -12,10 +12,14 @@ import {
 import { PAGES_DASHBOARD, tdId } from "@/utils";
 import { Tabs } from "@radix-ui/react-tabs";
 import Link from "next/link";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { axiosAuth } from "@/services/api/instance";
 import { ITransaction } from "@/types/transaction.types";
 import Cookies from "js-cookie";
+import { useElements, useStripe, CardElement } from "@stripe/react-stripe-js";
+import { toast } from "sonner";
+import { FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
 const cardVariant = ["Credit Card", "PayPal", "PayPal Credit"];
 
@@ -24,12 +28,13 @@ interface IStepThreeProps {
 }
 
 export default function StepThree({}: IStepThreeProps) {
-  const discount = 100
+  const transactionId = Cookies.get(tdId);
+  const router = useRouter();
+  const discount = 100;
   const { data } = useQuery({
     queryKey: ["getTransaction"],
     queryFn: async () => {
       try {
-        const transactionId = Cookies.get(tdId);
         const { data } = await axiosAuth.post<ITransaction>(
           "payment/transaction/info",
           { transactionId }
@@ -38,6 +43,50 @@ export default function StepThree({}: IStepThreeProps) {
       } catch (error) {}
     },
   });
+
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const { mutate } = useMutation({
+    mutationKey: ["finish"],
+    mutationFn: async () => {
+      try {
+        const card = elements?.getElement(CardElement);
+        const { data: clientSecret } = await axiosAuth.post<string>(
+          "/payment/transaction/finish",
+          {
+            transactionId,
+          }
+        );
+        const paymentResult = await stripe?.confirmCardPayment(clientSecret, {
+          payment_method: {
+            card: card!,
+            billing_details: {
+              address: {
+                city: data?.city,
+              },
+              email: data?.user.email,
+              name: data?.user.fullName,
+              phone: data?.phoneNumber,
+            },
+          },
+        });
+        if (paymentResult?.paymentIntent?.status === "succeeded") {
+          Cookies.remove(tdId);
+          router.push("/");
+          toast.success("Оплата успешна!", {
+            className: "bg-green-500 text-white border-none",
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  });
+  function paymentSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    mutate();
+  }
   if (!data) return;
   return (
     <div className="">
@@ -73,7 +122,10 @@ export default function StepThree({}: IStepThreeProps) {
                 </div>
                 <div className={styles.info}>
                   <h4>Shipment method</h4>
-                  <h3>{data.shipmentMethod?.title}  {data.shipmentMethod?.description}</h3>
+                  <h3>
+                    {data.shipmentMethod?.title}{" "}
+                    {data.shipmentMethod?.description}
+                  </h3>
                 </div>
               </div>
               <div>
@@ -102,7 +154,7 @@ export default function StepThree({}: IStepThreeProps) {
             <CardContent>
               <Tabs defaultValue={cardVariant[0]}>
                 <h3 className="text-xl font-semibold">Credit Card</h3>
-                <div className={styles.TabsContent}>
+                <form onSubmit={paymentSubmit} className={styles.TabsContent}>
                   <img
                     className="rounded-2xl"
                     src={"/card.png"}
@@ -111,25 +163,30 @@ export default function StepThree({}: IStepThreeProps) {
                     height={188}
                   />
                   <div className={styles.inputs}>
-                    <Input placeholder="Cardholder Name" />
+                    <CardElement className="w-[600px]" />
+                    {/* <Input placeholder="Cardholder Name" />
                     <Input placeholder="Card Number" />
                     <Input placeholder="Exp.Date" />
-                    <Input placeholder="CVV" />
+                    <Input placeholder="CVV" /> */}
                   </div>
                   <div className="flex gap-3 items-center font-semibold pb-12">
                     Same as billing address
                   </div>
                   <div className={styles.buttons}>
                     <Link href={`${PAGES_DASHBOARD.PAYMENT}/step-two`}>
-                      <Button variant={"outline"} size={"lg"}>
+                      <Button type="button" variant={"outline"} size={"lg"}>
                         Back
                       </Button>
                     </Link>
-                    <Button className="w-[100px]" variant={"default"}>
+                    <Button
+                      type="submit"
+                      className="w-[100px]"
+                      variant={"default"}
+                    >
                       Pay
                     </Button>
                   </div>
-                </div>
+                </form>
               </Tabs>
             </CardContent>
           </Card>

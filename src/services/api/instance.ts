@@ -24,7 +24,6 @@ axiosAuth.interceptors.response.use(
   (config) => config,
   async (error) => {
     const config = error.config;
-    console.log(error?.response);
 
     if (
       (error?.response?.status === 401 ||

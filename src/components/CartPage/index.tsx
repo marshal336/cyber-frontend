@@ -5,7 +5,6 @@ import CartSum from "@/components/CartSum";
 import { useCartStore } from "@/services/store/cart";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import Payment from "../Payment";
 import Container from "../Container/Container";
 
 export default function CartPage() {
@@ -46,9 +45,7 @@ export default function CartPage() {
               ))}
             </div>
           </div>
-          <Payment>
-            <CartSum total={cart?.total} />
-          </Payment>
+          <CartSum total={cart?.total} />
         </div>
       </Container>
     </div>
