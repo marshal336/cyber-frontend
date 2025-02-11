@@ -23,9 +23,10 @@ async function getItem(body: IFindByArgs) {
 export default async function Product({
   params,
 }: {
-  params: { fullName: string };
+  params: { fullName: string, category: string };
 }) {
-  const body = parseName(params.fullName);
+  const fullName = await params.fullName;
+  const body = parseName(fullName);
   const data = await getItem(body);
 
   if (!data) notFound();

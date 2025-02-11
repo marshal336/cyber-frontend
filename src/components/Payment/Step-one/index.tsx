@@ -4,7 +4,7 @@ import styles from "./Step-one.module.scss";
 import SelectCountry from "@/components/InputCountry";
 import Cookies from "js-cookie";
 import "react-international-phone/style.css";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui";
 import { PAGES_DASHBOARD, tdId } from "@/utils";
 import { FaPencilAlt } from "react-icons/fa";
@@ -26,7 +26,7 @@ export interface IAddress {
   street: string;
 }
 
-export default function StepOne({}: IStepOneProps) {
+export default function StepOne({ }: IStepOneProps) {
   const router = useRouter();
   const [address, setAddress] = useState<IAddress>({
     country: "",
@@ -34,23 +34,23 @@ export default function StepOne({}: IStepOneProps) {
     phoneNumber: "",
   });
 
-  useQuery({
-    queryKey: ["getTransaction"],
-    queryFn: async () => {
-      try {
-        const transactionId = Cookies.get(tdId);
-        const { data } = await axiosAuth.post<ITransaction>(
-          "payment/transaction/info",
-          { transactionId }
-        );
-        setAddress({
-          country: data.country ?? "",
-          phoneNumber: data.phoneNumber ?? "",
-          street: data.street ?? "",
-        });
-      } catch (error) {}
-    },
-  });
+  // useQuery({
+  //   queryKey: ["getTransaction"],
+  //   queryFn: async () => {
+  //     try {
+  //       const transactionId = Cookies.get(tdId);
+  //       const { data } = await axiosAuth.post<ITransaction>(
+  //         "payment/transaction/info",
+  //         { transactionId }
+  //       );
+  //       setAddress({
+  //         country: data.country ?? "",
+  //         phoneNumber: data.phoneNumber ?? "",
+  //         street: data.street ?? "",
+  //       });
+  //     } catch (error) { }
+  //   },
+  // });
 
   function setValueAddress(key: keyof Partial<IAddress>, value: string) {
     setAddress({
@@ -69,55 +69,56 @@ export default function StepOne({}: IStepOneProps) {
   };
   const isValidPhone = isPhoneValid(address.phoneNumber ?? "");
 
-  const { mutate: update } = useMutation({
-    mutationKey: ["update"],
-    mutationFn: async (
-      data: Pick<
-        ITransaction,
-        "phoneNumber" | "country" | "status" | "street" | "transactionId"
-      >
-    ) => {
-      try {
-        await axiosAuth.put("/payment/transaction/update", data);
-      } catch (error) {
-        throw error;
-      }
-    },
-  });
+  // const { mutate: update } = useMutation({
+  //   mutationKey: ["update"],
+  //   mutationFn: async (
+  //     data: Pick<
+  //       ITransaction,
+  //       "phoneNumber" | "country" | "status" | "street" | "transactionId"
+  //     >
+  //   ) => {
+  //     try {
+  //       await axiosAuth.put("/payment/transaction/update", data);
+  //     } catch (error) {
+  //       throw error;
+  //     }
+  //   },
+  // });
 
-  const { mutate: remove } = useMutation({
-    mutationKey: ["remove"],
-    mutationFn: async () => {
-      try {
-        const transactionId = Cookies.get(tdId);
-        const { data } = await axiosAuth.delete<boolean>(
-          "/payment/transaction/remove",
-          { data: { transactionId } }
-        );
-        return data;
-      } catch (error) {
-        throw error;
-      }
-    },
-    onSuccess: (data) => {
-      if (data) {
-        Cookies.remove(tdId);
-        router.push(`${PAGES_DASHBOARD.CART}`);
-      }
-    },
-  });
+  // const { mutate: remove } = useMutation({
+  //   mutationKey: ["remove"],
+  //   mutationFn: async () => {
+  //     try {
+  //       const transactionId = Cookies.get(tdId);
+  //       const { data } = await axiosAuth.delete<boolean>(
+  //         "/payment/transaction/remove",
+  //         { data: { transactionId } }
+  //       );
+  //       return data;
+  //     } catch (error) {
+  //       throw error;
+  //     }
+  //   },
+  //   onSuccess: (data) => {
+  //     if (data) {
+  //       Cookies.remove(tdId);
+  //       router.push(`${PAGES_DASHBOARD.CART}`);
+  //     }
+  //   },
+  // });
 
   function removeTransaction() {
-    remove();
+    // remove();
   }
 
   function submitTransaction() {
-    const transactionId = Cookies.get(tdId);
-    if (!transactionId) router.push("/");
-    if (isValidPhone && transactionId) {
-      update({ ...address, status: "PENDING", transactionId });
-      router.push(`${PAGES_DASHBOARD.PAYMENT}${PAGES_DASHBOARD.STEP_TWO}`);
-    }
+    router.push(`${PAGES_DASHBOARD.PAYMENT}${PAGES_DASHBOARD.STEP_TWO}`);
+    // const transactionId = Cookies.get(tdId);
+    // if (!transactionId) router.push("/");
+    // if (isValidPhone && transactionId) {
+    //   update({ ...address, status: "PENDING", transactionId });
+    //   router.push(`${PAGES_DASHBOARD.PAYMENT}${PAGES_DASHBOARD.STEP_TWO}`);
+    // }
   }
   return (
     <div>

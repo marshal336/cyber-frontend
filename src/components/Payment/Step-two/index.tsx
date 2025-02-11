@@ -23,60 +23,60 @@ export interface IShipmentMethod {
   updatedAt: string;
 }
 
-export default function StepTwo({}: IStepTwoProps) {
+export default function StepTwo({ }: IStepTwoProps) {
   const [activeId, setActiveId] = useState(1);
   const router = useRouter();
 
-  useQuery({
-    queryKey: ["getTransaction"],
-    queryFn: async () => {
-      try {
-        const transactionId = Cookies.get(tdId);
-        const { data } = await axiosAuth.post<ITransaction>(
-          "payment/transaction/info",
-          { transactionId }
-        );
-        setActiveId(data.shipmentMethodId ?? 1);
-        return data;
-      } catch (error) {}
-    },
-  });
+  // useQuery({
+  //   queryKey: ["getTransaction"],
+  //   queryFn: async () => {
+  //     try {
+  //       const transactionId = Cookies.get(tdId);
+  //       const { data } = await axiosAuth.post<ITransaction>(
+  //         "payment/transaction/info",
+  //         { transactionId }
+  //       );
+  //       setActiveId(data.shipmentMethodId ?? 1);
+  //       return data;
+  //     } catch (error) {}
+  //   },
+  // });
 
-  const { data } = useQuery({
-    queryKey: ["shipMent"],
-    queryFn: async () => {
-      try {
-        const { data } = await axiosClassic.get<IShipmentMethod[]>(
-          "/payment/shipping"
-        );
-        return data;
-      } catch (error) {
-        throw error;
-      }
-    },
-  });
+  // const { data } = useQuery({
+  //   queryKey: ["shipMent"],
+  //   queryFn: async () => {
+  //     try {
+  //       const { data } = await axiosClassic.get<IShipmentMethod[]>(
+  //         "/payment/shipping"
+  //       );
+  //       return data;
+  //     } catch (error) {
+  //       throw error;
+  //     }
+  //   },
+  // });
 
-  const { mutate } = useMutation({
-    mutationKey: ["setId"],
-    mutationFn: async (
-      data: Pick<ITransaction, "shipmentMethodId" | "status" | "transactionId">
-    ) => {
-      try {
-        await axiosAuth.put("/payment/transaction/update", data);
-      } catch (error) {
-        throw error;
-      }
-    },
-  });
+  // const { mutate } = useMutation({
+  //   mutationKey: ["setId"],
+  //   mutationFn: async (
+  //     data: Pick<ITransaction, "shipmentMethodId" | "status" | "transactionId">
+  //   ) => {
+  //     try {
+  //       await axiosAuth.put("/payment/transaction/update", data);
+  //     } catch (error) {
+  //       throw error;
+  //     }
+  //   },
+  // });
 
-  function transaction() {
-    const transactionId = Cookies.get(tdId);
-    if (!transactionId) router.push("/");
-    if (transactionId) {
-      mutate({ shipmentMethodId: activeId, status: "PENDING", transactionId });
-    }
-    router.push(`${PAGES_DASHBOARD.PAYMENT}${PAGES_DASHBOARD.STEP_THREE}`);
-  }
+  // function transaction() {
+  //   const transactionId = Cookies.get(tdId);
+  //   if (!transactionId) router.push("/");
+  //   if (transactionId) {
+  //     mutate({ shipmentMethodId: activeId, status: "PENDING", transactionId });
+  //   }
+  //   router.push(`${PAGES_DASHBOARD.PAYMENT}${PAGES_DASHBOARD.STEP_THREE}`);
+  // }
 
   return (
     <div className="">
@@ -84,14 +84,14 @@ export default function StepTwo({}: IStepTwoProps) {
         <div className={styles.snipnet}>
           <h2>Shipment Method</h2>
           <div className={styles.methods}>
-            {data?.map((item, i) => (
+            {[...new Array(3)].map((_, i) => (
               <MethodItem
-                className={activeId !== item.id ? "opacity-50" : ""}
-                onCheckedChange={() => setActiveId(item.id)}
-                checked={activeId === item.id}
-                dateDelivery={item.createdAt}
-                name={item.title}
-                value={item.description}
+                className={activeId !== i ? "opacity-50" : ""}
+                onCheckedChange={() => setActiveId(i)}
+                checked={activeId === i}
+                dateDelivery={'Date Delivery'}
+                name={'name delivery'}
+                value={(1 + i).toString()}
               />
             ))}
           </div>
@@ -108,7 +108,11 @@ export default function StepTwo({}: IStepTwoProps) {
           >
             Back
           </Button>
-          <Button onClick={transaction} variant={"default"} size={"lg"}>
+          <Button
+            onClick={() => {
+              router.push(`${PAGES_DASHBOARD.PAYMENT}${PAGES_DASHBOARD.STEP_THREE}`);
+            }}
+            variant={"default"} size={"lg"}>
             Next
           </Button>
         </div>

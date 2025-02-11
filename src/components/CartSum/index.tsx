@@ -14,26 +14,26 @@ interface ICartSum {
 export default function CartSum({ total }: ICartSum) {
   const router = useRouter();
 
-  const { mutate, data: transactionId } = useMutation({
-    mutationKey: ["create-transaction"],
-    mutationFn: async () => {
-      try {
-        const { data } = await axiosAuth.post<string>("/payment/transaction/create");
-        return data;
-      } catch (error) {
-        throw error;
-      }
-    },
-    onSuccess: (transactionId) => {
-      if (transactionId) {
-        Cookies.set(tdId, transactionId);
-        router.push(`${PAGES_DASHBOARD.PAYMENT}/${PAGES_DASHBOARD.STEP_ONE}`);
-      }
-    },
-  });
+  // const { mutate, data: transactionId } = useMutation({
+  //   mutationKey: ["create-transaction"],
+  //   mutationFn: async () => {
+  //     try {
+  //       const { data } = await axiosAuth.post<string>("/payment/transaction/create");
+  //       return data;
+  //     } catch (error) {
+  //       throw error;
+  //     }
+  //   },
+  //   onSuccess: (transactionId) => {
+  //     if (transactionId) {
+  //       Cookies.set(tdId, transactionId);
+  //       router.push(`${PAGES_DASHBOARD.PAYMENT}/${PAGES_DASHBOARD.STEP_ONE}`);
+  //     }
+  //   },
+  // });
 
   function transaction() {
-    mutate();
+    router.push(`${PAGES_DASHBOARD.PAYMENT}/${PAGES_DASHBOARD.STEP_ONE}`)
   }
 
   return (
