@@ -42,7 +42,7 @@ export default function AuthForm({ className }: IAuthFormProps) {
         toast.success("login successfull", {
           className: "bg-green-500 border-none text-white",
         });
-        router.push(PAGES_DASHBOARD.PROFILE);
+        router.push(`${PAGES_DASHBOARD.PROFILE}`);
       }
     },
   });
@@ -52,7 +52,7 @@ export default function AuthForm({ className }: IAuthFormProps) {
   });
 
   useEffect(() => {
-    if (!accessToken) router.push(PAGES_DASHBOARD.PROFILE);
+    if (!accessToken) router.push(`${PAGES_DASHBOARD.PROFILE}`);
   }, [accessToken]);
 
   function onSubmit(data: z.infer<typeof formSchema>) {

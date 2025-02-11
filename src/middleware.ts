@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { PAGES_DASHBOARD, tdId, TOKENS } from "./utils";
+import { PAGES_DASHBOARD, TOKENS } from "./utils";
 import { axiosAuth, axiosClassic } from "./services/api/instance";
 
 export async function middleware(request: NextRequest, response: NextResponse) {
@@ -59,7 +59,7 @@ export async function middleware(request: NextRequest, response: NextResponse) {
   if (!validToken && isProtectedPage) {
     return NextResponse.redirect(new URL("/auth", request.url));
   }
-  if (accessToken && validToken && request.url.includes("/auth")) {
+  if (accessToken && request.url.includes("/auth")) {
     return NextResponse.redirect(new URL(PAGES_DASHBOARD.PROFILE, request.url));
   }
   if (

@@ -159,7 +159,7 @@ export default function StepThree({ }: IStepThreeProps) {
                 <div className={styles.TabsContent}>
                   <img
                     className="rounded-2xl"
-                    src={"/card.png"}
+                    src={"/Card.png"}
                     alt="card"
                     width={337}
                     height={188}
