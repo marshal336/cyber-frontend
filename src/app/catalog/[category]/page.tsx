@@ -1,11 +1,27 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Filters from '@/components/Filters/Filters'
 import { Container, FilterItems } from '@/components'
 import { SearchParams, useFilters } from '@/hooks'
 
 
-export default function Category({ params, searchParams }: { params: { category: string }, searchParams: SearchParams }) {
+export default function Category({ params, searchParams }: { params: Promise<{ category: string }>, searchParams: Promise<SearchParams> }) {
+    const [category, setCategory] = useState<string>('');
+    const [search, setSearch] = useState<Partial<SearchParams>>({});
+
+    useEffect(() => {
+        const fetchCategory = async () => {
+            const result = await params;
+            setCategory(result.category);
+        };
+        const fetchSearchParams = async () => {
+            const result = await searchParams;
+            setSearch(result);
+        };
+
+        fetchCategory();
+        fetchSearchParams();
+    }, [params, searchParams]);
 
     const {
         items,
@@ -17,8 +33,8 @@ export default function Category({ params, searchParams }: { params: { category:
         setScreenTypeId,
         setSelect
     } = useFilters({
-        sP: searchParams,
-        category: params.category
+        sP: search,
+        category
     })
 
     return (

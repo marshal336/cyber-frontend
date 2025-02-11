@@ -23,16 +23,15 @@ async function getItem(body: IFindByArgs) {
 export default async function Product({
   params,
 }: {
-  params: { fullName: string, category: string };
+  params: Promise<{ fullName: string, category: string }>;
 }) {
-  const fullName = await params.fullName;
-  const body = parseName(fullName);
+  const body = parseName((await params).fullName);
   const data = await getItem(body);
 
-  if (!data) notFound();
+  if (!data) return notFound();
 
   return (
-    <div >
+    <div>
       <Container>
         <div className="md:py-[50px] py-[40px] flex lg:flex-row flex-col xl:gap-12 gap-4 justify-around items-center xl:justify-center">
           <Images logos={data.imagesUrl[0].imgUrl} />
@@ -43,3 +42,4 @@ export default async function Product({
     </div>
   );
 }
+
